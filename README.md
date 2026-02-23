@@ -1,44 +1,43 @@
-# 🌍 Global News Network (GNN) | Live Updates
+# 🌌 GNN GLOBAL | Live Stream Universe
 
 [![Site Status](https://img.shields.io/website?url=https%3A%2F%2Falmog787.github.io%2Fhighlights-hub%2F&logo=googlechrome&logoColor=white)](https://almog787.github.io/highlights-hub/)
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Almog787/highlights-hub/graphs/commit-activity)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## 🔗 Live News Portal
-Access the high-speed global broadcasting hub here:
+## 🔗 Global Content Hub
+Access the automated live broadcasting universe here:
 ### 👉 **[https://almog787.github.io/highlights-hub/](https://almog787.github.io/highlights-hub/)**
 
 ---
 
 ## 🚀 Project Overview
-GNN is a sophisticated, **zero-backend** news aggregator engineered for real-time international reporting. By utilizing advanced client-side fetching, the platform remains lightweight, incredibly fast, and fully automated.
+GNN Global is an **AI-driven live stream aggregator**. It uses a custom Python scraper to bypass traditional APIs, scanning YouTube for high-quality, real-time broadcasts across three major categories: Global News, Kids & Animation, and Movies/Entertainment.
 
 ### 🛠️ Key Features
-* ⚡ **Real-Time News:** Automated fetching of world headlines without manual intervention.
-* 📉 **Financial Tickers:** Live market data integration via TradingView.
-* 🔍 **SEO Optimized:** Built-in JSON-LD Schema for Google News & Discover eligibility.
-* 📱 **Mobile First:** Fully responsive UI built with Bootstrap 5.
-* 💰 **Monetization Ready:** Pre-integrated with Google AdSense (ca-pub-3359114283161345).
+* 🤖 **No-API Scraper:** Custom Python bot that discovers live streams using YouTube internal metadata.
+* 📺 **Multi-Category:** Dynamic filtering for World News, Cartoons, and Cinema.
+* 🔄 **Auto-Sync:** Content is refreshed every 6 hours via GitHub Actions.
+* 💎 **Premium UI:** Glassmorphism design with a dark, cinematic aesthetic.
+* 💰 **Monetization:** Fully integrated with Google AdSense and Analytics.
 
-## 📊 System Diagnostics
-| Feature | Details |
+## 📊 System Architecture
+| Component | Technology |
 | :--- | :--- |
-| **Status** | Active 🟢 |
-| **Last Updated** | 2026-02-23 18:28:05 UTC |
-| **Deployment** | GitHub Pages |
-| **Architecture** | Serverless / Static |
-| **Analytics** | GTM-8NEMWLX7BF |
+| **Bot Logic** | Python (yt-dlp based scraper) |
+| **Database** | Dynamic JSON storage (streams.json) |
+| **Frontend** | HTML5, CSS3 (Outfit Font), JavaScript ES6 |
+| **Automation** | GitHub Actions (6-hour refresh cycle) |
+| **Last Build** | 2026-02-23 18:29:27 UTC |
 
 ## 📉 Technical Stack
 ```text
-Frontend: HTML5, CSS3, JavaScript (ES6+)
-Design: Bootstrap 5.3 + Bootstrap Icons
-Automation: GitHub Actions (README & Health Sync)
-Data Source: GNN International API Bureau
+Crawler: Custom Python Scraper (No-API implementation)
+UI: Bootstrap 5.3 + Glassmorphism Custom CSS
+Data Flow: Scraper -> JSON DB -> Vanilla JS Rendering
 ```
 
 ## 👨‍💻 Developer
-**Project Architect:** [Almog787](https://github.com/Almog787)
+**Lead Architect:** [Almog787](https://github.com/Almog787)
 
 ---
-*This README is dynamically updated via GitHub Actions to ensure live accuracy.*
+*This README is dynamically updated. If you add new streams, the bot will categorize them automatically.*
