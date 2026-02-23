@@ -1,138 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="he" dir="rtl">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8NEMWLX7BF"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date()); gtag('config', 'G-8NEMWLX7BF');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sports World | Premium Football Portal</title>
+    <title>WORLD FOOTBALL | פורטל התקצירים הבינלאומי</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
     
     <style>
-        :root { --primary: #e01e2e; --dark: #121212; --card-bg: #ffffff; --text: #1a1a1a; }
-        [data-theme="dark"] { --dark: #000000; --card-bg: #1a1a1a; --text: #ffffff; }
-
-        body { background: #f0f2f5; font-family: 'Roboto', sans-serif; color: var(--text); }
-        h1, h2, h3, .navbar-brand { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
-
-        .navbar { background: var(--dark) !important; border-bottom: 3px solid var(--primary); }
-        .hero-section { background: var(--dark); color: white; padding: 60px 0; margin-bottom: 40px; clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%); }
+        :root { --primary: #e21a22; --dark: #121212; --gray-bg: #f4f4f4; }
+        body { font-family: 'Heebo', sans-serif; background-color: var(--gray-bg); color: #333; }
         
-        .league-row { margin-bottom: 50px; }
-        .league-title { border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 25px; font-size: 1.8rem; }
-        [dir="rtl"] .league-title { border-left: 0; border-right: 5px solid var(--primary); padding-left: 0; padding-right: 15px; }
+        /* Navbar */
+        .navbar { background: #000 !important; border-bottom: 4px solid var(--primary); padding: 15px 0; }
+        .navbar-brand { font-family: 'Oswald', sans-serif; font-size: 2rem; font-weight: 900; letter-spacing: 1px; }
 
-        .video-card { background: var(--card-bg); border-radius: 0; border: none; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: 0.3s; height: 100%; }
-        .video-card:hover { transform: translateY(-5px); box-shadow: 0 8px 24px rgba(0,0,0,0.2); }
-        
-        .video-container { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
-        .video-container iframe { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+        /* Hero Section */
+        .hero-banner { 
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=2000');
+            background-size: cover; background-position: center;
+            color: white; padding: 100px 0 60px; margin-bottom: 50px;
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+        }
 
-        .team-badge { width: 35px; height: 35px; border-radius: 50%; object-fit: cover; background: #eee; }
-        .live-sidebar { background: var(--card-bg); border-radius: 8px; border-top: 4px solid var(--primary); }
+        /* League Blocks */
+        .league-block { margin-bottom: 60px; }
+        .league-header { 
+            display: flex; align-items: center; margin-bottom: 25px; 
+            border-right: 6px solid var(--primary); padding-right: 15px;
+        }
+        .league-header h2 { font-family: 'Oswald', sans-serif; font-weight: 700; margin: 0; text-transform: uppercase; }
+
+        /* Match Card */
+        .match-card { 
+            background: #fff; border: none; border-radius: 0; 
+            transition: 0.3s; height: 100%; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .match-card:hover { transform: translateY(-8px); box-shadow: 0 12px 20px rgba(0,0,0,0.15); }
         
-        .lang-btn { font-size: 0.7rem; padding: 2px 8px; }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
+        .video-wrapper iframe { position: absolute; width: 100%; height: 100%; top:0; left:0; }
+
+        .card-body { padding: 20px; }
+        .team-info { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+        .team-box { text-align: center; width: 40%; }
+        .team-logo { width: 55px; height: 55px; object-fit: contain; margin-bottom: 8px; border-radius: 50%; padding: 4px; background: #fff; border: 1px solid #eee; }
+        .vs-divider { font-family: 'Oswald', sans-serif; color: var(--primary); font-weight: 900; font-size: 1.2rem; }
+
+        .btn-watch { border-radius: 0; font-weight: 700; background: var(--dark); border: none; color: white; transition: 0.3s; }
+        .btn-watch:hover { background: var(--primary); color: white; }
     </style>
 </head>
 <body>
 
 <nav class="navbar navbar-dark sticky-top">
-    <div class="container d-flex justify-content-between">
-        <a class="navbar-brand fs-2" href="/">SPORTS <span class="text-danger">WORLD</span></a>
-        <div class="d-flex align-items-center gap-3">
-            <div class="btn-group">
-                <button class="btn btn-outline-light lang-btn" onclick="setLang('en')">EN</button>
-                <button class="btn btn-outline-light lang-btn" onclick="setLang('he')">עב</button>
-            </div>
-            <button class="btn btn-sm btn-outline-warning" onclick="toggleTheme()">🌓</button>
-        </div>
+    <div class="container">
+        <a class="navbar-brand" href="#"><span class="text-danger">WORLD</span> FOOTBALL</a>
+        <div class="text-white small d-none d-md-block">המוקד המרכזי לתקצירי הליגות המובילות</div>
     </div>
 </nav>
 
-<div class="hero-section">
+<div class="hero-banner">
     <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-7">
-                <h1 class="display-3" id="hero-msg">GLOBAL FOOTBALL<br><span class="text-danger">INSIDER</span></h1>
-                <p class="lead">The most updated highlights and live results from every top flight league in the world.</p>
-            </div>
-            <div class="col-md-5 d-none d-md-block">
-                <div id="live-ticker" class="live-sidebar p-3 shadow-lg">
-                    <h5 class="fw-bold text-dark">LIVE UPDATES</h5>
-                    <div id="live-content" class="text-dark">Loading scores...</div>
-                </div>
-            </div>
+        <h1 class="display-3 fw-black">MATCHDAY <span class="text-danger">RECAP</span></h1>
+        <p class="lead fs-4">כל השערים, כל הדרמות. הכיסוי המלא של הכדורגל העולמי במקום אחד.</p>
+    </div>
+</div>
+
+<div class="container">
+    <div id="leagues-container">
+        <div class="text-center py-5">
+            <div class="spinner-border text-danger" role="status"></div>
+            <p class="mt-2">טוען את נתוני הליגות...</p>
         </div>
     </div>
 </div>
 
-
-
-<div class="container">
-    <div id="leagues-container">
-        </div>
-</div>
+<footer class="bg-dark text-white py-4 mt-5">
+    <div class="container text-center">
+        <p class="mb-0">© 2026 World Football Highlights Portal | נתונים מסופקים ע"י ScoreBat API</p>
+    </div>
+</footer>
 
 <script>
-    const i18n = {
-        en: { dir: "ltr", hero: "GLOBAL FOOTBALL<br><span class='text-danger'>INSIDER</span>", live: "LIVE SCORES" },
-        he: { dir: "rtl", hero: "חדשות הספורט<br><span class='text-danger'>המעודכנות ביותר</span>", live: "תוצאות חיות" }
-    };
-
-    function toggleTheme() {
-        document.body.dataset.theme = document.body.dataset.theme === 'dark' ? 'light' : 'dark';
-    }
-
-    function setLang(l) {
-        document.documentElement.dir = i18n[l].dir;
-        document.getElementById('hero-msg').innerHTML = i18n[l].hero;
-        renderAll();
-    }
-
-    async function init() {
+    async function loadData() {
         try {
-            const hRes = await fetch('data/highlights_by_league.json');
-            window.leagueData = await hRes.json();
-            
-            const lRes = await fetch('data/live_scores.json');
-            window.liveData = await lRes.json();
-            
-            renderAll();
-        } catch (e) { console.error("Error loading data", e); }
+            const response = await fetch('data/highlights.json');
+            const data = await response.json();
+            renderLeagues(data);
+        } catch (error) {
+            console.error("Error loading highlights:", error);
+            document.getElementById('leagues-container').innerHTML = `
+                <div class="alert alert-danger text-center">שגיאה בטעינת הנתונים. אנא ודא שהקובץ highlights.json קיים.</div>
+            `;
+        }
     }
 
-    function renderAll() {
+    function renderLeagues(data) {
         const container = document.getElementById('leagues-container');
         container.innerHTML = '';
 
-        // יצירת שורה לכל ליגה
-        for (const [league, matches] of Object.entries(window.leagueData)) {
+        for (const [leagueName, matches] of Object.entries(data)) {
             let leagueHtml = `
-                <div class="league-row">
-                    <h2 class="league-title">${league}</h2>
+                <div class="league-block">
+                    <div class="league-header">
+                        <h2>${leagueName}</h2>
+                    </div>
                     <div class="row g-4">
             `;
 
-            matches.forEach(m => {
+            matches.forEach(match => {
                 leagueHtml += `
                     <div class="col-md-6 col-lg-4">
-                        <div class="video-card card">
-                            <div class="video-container">${m.embed_code}</div>
+                        <div class="match-card card">
+                            <div class="video-wrapper">
+                                ${match.embed_code}
+                            </div>
                             <div class="card-body">
-                                <div class="d-flex align-items-center mb-2">
-                                    <img src="${m.home_logo}" class="team-badge me-2">
-                                    <span class="fw-bold small">${m.home_team} vs ${m.away_team}</span>
-                                    <img src="${m.away_logo}" class="team-badge ms-2">
+                                <div class="team-info">
+                                    <div class="team-box">
+                                        <img src="${match.home_team.logo}" class="team-logo" alt="${match.home_team.name}">
+                                        <div class="small fw-bold text-truncate">${match.home_team.name}</div>
+                                    </div>
+                                    <div class="vs-divider">VS</div>
+                                    <div class="team-box">
+                                        <img src="${match.away_team.logo}" class="team-logo" alt="${match.away_team.name}">
+                                        <div class="small fw-bold text-truncate">${match.away_team.name}</div>
+                                    </div>
                                 </div>
-                                <h6 class="card-title fw-bold">${m.title}</h6>
-                                <p class="text-muted extra-small" style="font-size:0.7rem">${new Date(m.date).toLocaleString()}</p>
+                                <h5 class="card-title fw-bold h6 mt-3">${match.title}</h5>
+                                <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <span class="text-muted small"><i class="bi bi-calendar3"></i> ${new Date(match.date).toLocaleDateString('he-IL')}</span>
+                                    <a href="${match.url}" target="_blank" class="btn btn-sm btn-watch">לכתבה המלאה</a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -142,19 +144,10 @@
             leagueHtml += `</div></div>`;
             container.innerHTML += leagueHtml;
         }
-
-        // עדכון תוצאות חיות בסידבר
-        const liveCont = document.getElementById('live-content');
-        liveCont.innerHTML = window.liveData.slice(0,5).map(m => `
-            <div class="border-bottom py-2 small d-flex justify-content-between">
-                <span>${m.teams.home.name}</span>
-                <span class="badge bg-dark">${m.goals.home} - ${m.goals.away}</span>
-                <span>${m.teams.away.name}</span>
-            </div>
-        `).join('') || "No live matches right now.";
     }
 
-    init();
+    window.onload = loadData;
 </script>
+
 </body>
 </html>
