@@ -23,8 +23,8 @@
       "@type": "NewsMediaOrganization",
       "name": "Global News Network",
       "alternateName": "GNN Live",
-      "url": "https://your-domain.com",
-      "logo": "https://your-domain.com/logo.png",
+      "url": "https://almog787.github.io/highlights-hub/",
+      "logo": "https://via.placeholder.com/200x200?text=GNN",
       "foundingDate": "2026",
       "knowsAbout": ["World News", "Technology", "Economy", "Science"]
     }
@@ -99,6 +99,7 @@
             transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             margin-bottom: 30px;
             border-bottom: 1px solid #eee;
+            background: #fff;
         }
         .news-card:hover { transform: translateY(-5px); box-shadow: 0 12px 20px rgba(0,0,0,0.1); }
         .card-img-top { border-radius: 0; height: 220px; object-fit: cover; }
@@ -112,7 +113,9 @@
         }
         .card-title { font-weight: 700; line-height: 1.3; font-size: 1.25rem; }
         
-        .footer { background: var(--gnn-dark); color: #888; padding: 40px 0; margin-top: 50px; }
+        .footer { background: var(--gnn-dark); color: #888; padding: 50px 0 20px 0; margin-top: 50px; }
+        .builder-credit { color: #fff; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gnn-red); transition: 0.3s; }
+        .builder-credit:hover { color: var(--gnn-red); }
     </style>
 </head>
 <body>
@@ -151,12 +154,14 @@
     <div class="container text-center">
         <h5 class="text-white mb-3">GLOBAL NEWS NETWORK</h5>
         <p class="small mb-4">The most trusted name in international reporting.</p>
-        <div class="d-flex justify-content-center gap-3 mb-4">
-            <i class="bi bi-twitter"></i>
-            <i class="bi bi-facebook"></i>
-            <i class="bi bi-youtube"></i>
+        <div class="d-flex justify-content-center gap-4 mb-4" style="font-size: 1.2rem;">
+            <a href="#" class="text-secondary"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-secondary"><i class="bi bi-youtube"></i></a>
         </div>
-        <p style="font-size: 0.7rem;">© 2026 GNN International. All rights reserved. Your AdChoices.</p>
+        <hr class="border-secondary opacity-25 mb-4">
+        <p style="font-size: 0.8rem;" class="mb-1">© 2026 GNN International. All rights reserved.</p>
+        <p style="font-size: 0.85rem;" class="mb-0">Website Built by <a href="https://github.com/almog787" class="builder-credit" target="_blank">Almog787</a></p>
     </div>
 </footer>
 
@@ -166,14 +171,11 @@
     document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', options);
 
     // 2. Fetch Real-time News
-    // Using a reliable open API proxy for world news
     async function updateNewsFeed() {
-        const categories = ['technology', 'business', 'science', 'general'];
         const contentArea = document.getElementById('main-content');
         const ticker = document.getElementById('ticker-feed');
         
         try {
-            // Fetching US/World news headlines
             const response = await fetch('https://saurav.tech/NewsAPI/top-headlines/category/general/us.json');
             const data = await response.json();
             const articles = data.articles;
@@ -184,7 +186,7 @@
             // Update Main Content
             contentArea.innerHTML = '';
             articles.slice(0, 18).forEach(item => {
-                if(!item.urlToImage) return; // Only show articles with images for better SEO
+                if(!item.urlToImage) return; 
 
                 const articleHtml = `
                     <div class="col-md-6 col-lg-4 d-flex">
@@ -209,14 +211,13 @@
 
         } catch (error) {
             contentArea.innerHTML = `
-                <div class="alert alert-warning text-center">
-                    <h5>Connection Slow</h5>
-                    <p>We are having trouble reaching the news servers. Please check your connection and refresh.</p>
+                <div class="alert alert-warning text-center mx-auto" style="max-width: 500px;">
+                    <h5>Updating Bureau...</h5>
+                    <p>Fetching the latest reports. Please refresh the page if news doesn't appear shortly.</p>
                 </div>`;
         }
     }
 
-    // Initialize
     window.onload = updateNewsFeed;
 </script>
 
