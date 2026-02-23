@@ -13,20 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-3359114283161345">
     
-    <title>Global News Network | Real-Time World Updates</title>
-    <meta name="description" content="Stay informed with real-time international news, technology updates, and financial market data.">
-    <meta name="robots" content="index, follow">
+    <title>GNN | Global News Network Live</title>
+    <meta name="description" content="Real-time international news hub with live market data and world headlines.">
     
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "NewsMediaOrganization",
       "name": "Global News Network",
-      "alternateName": "GNN Live",
       "url": "https://almog787.github.io/highlights-hub/",
       "logo": "https://via.placeholder.com/200x200?text=GNN",
-      "foundingDate": "2026",
-      "knowsAbout": ["World News", "Technology", "Economy", "Science"]
+      "foundingDate": "2026"
     }
     </script>
 
@@ -42,7 +39,7 @@
         }
 
         body { 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            font-family: 'Inter', -apple-system, sans-serif; 
             background-color: var(--gnn-gray);
             color: var(--gnn-dark);
         }
@@ -50,9 +47,9 @@
         .navbar { 
             background: var(--gnn-navy) !important; 
             border-bottom: 5px solid var(--gnn-red);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
 
+        /* Breaking News Ticker */
         .ticker-wrap { 
             background: #fff; 
             padding: 12px 0; 
@@ -65,48 +62,38 @@
             color: white; 
             padding: 3px 15px; 
             font-weight: bold; 
-            font-size: 0.85rem;
             text-transform: uppercase;
             margin-right: 20px;
-            border-radius: 2px;
+            z-index: 2;
         }
         .ticker-content { 
             display: inline-block; 
-            animation: ticker-kf 65s linear infinite;
+            animation: ticker-kf 70s linear infinite;
         }
         @keyframes ticker-kf {
-            0% { transform: translateX(100%); }
+            0% { transform: translateX(10%); }
             100% { transform: translateX(-100%); }
         }
 
         .hero-section { 
-            padding: 80px 0; 
-            background: linear-gradient(rgba(0,33,71,0.85), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1495020689067-958852a7765e?q=80&w=2000');
+            padding: 60px 0; 
+            background: linear-gradient(rgba(0,33,71,0.9), rgba(0,0,0,0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000');
             background-size: cover;
             background-position: center;
             color: white;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
         }
 
         .news-card { 
             border: none; 
-            border-radius: 0;
-            transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-            margin-bottom: 30px;
+            transition: 0.3s;
             background: #fff;
             height: 100%;
-            border-bottom: 1px solid #eee;
         }
-        .news-card:hover { transform: translateY(-8px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
-        .card-img-top { height: 230px; object-fit: cover; }
-        .card-category { color: var(--gnn-red); font-weight: 800; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; }
-        .card-title { font-weight: 700; line-height: 1.4; color: #111; }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.1); }
+        .card-img-top { height: 200px; object-fit: cover; background: #eee; }
         
-        .footer { background: var(--gnn-dark); color: #bbb; padding: 60px 0 30px; margin-top: 60px; }
-        .builder-credit { color: #fff; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--gnn-red); transition: 0.3s; }
-        .builder-credit:hover { color: var(--gnn-red); border-bottom-color: #fff; }
-        .social-icons a { color: #888; font-size: 1.4rem; transition: 0.3s; }
-        .social-icons a:hover { color: #fff; }
+        .footer { background: var(--gnn-dark); color: #bbb; padding: 50px 0 20px; margin-top: 50px; }
+        .builder-credit { color: #fff; text-decoration: none; border-bottom: 1px solid var(--gnn-red); }
     </style>
 </head>
 <body>
@@ -116,116 +103,111 @@
     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
     {
     "symbols": [
-      { "proName": "FOREXCOM:SPX3500", "title": "S&P 500" },
-      { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
-      { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-      { "proName": "FX_IDC:USDILS", "title": "USD/ILS" },
-      { "proName": "NASDAQ:AAPL", "title": "Apple Inc." }
+      {"proName": "FOREXCOM:SPX3500", "title": "S&P 500"},
+      {"proName": "BITSTAMP:BTCUSD", "title": "Bitcoin"},
+      {"proName": "FX_IDC:USDILS", "title": "USD/ILS"},
+      {"proName": "NASDAQ:AAPL", "title": "Apple"}
     ],
-    "showSymbolLogo": true, "colorTheme": "light", "isTransparent": false, "displayMode": "adaptive", "locale": "en"
+    "colorTheme": "light", "isTransparent": false, "displayMode": "adaptive", "locale": "en"
     }
     </script>
 </div>
 
 <nav class="navbar navbar-dark sticky-top">
     <div class="container d-flex justify-content-between align-items-center">
-        <a class="navbar-brand fw-bolder" href="#">GLOBAL NEWS<span class="text-danger">.</span></a>
-        <div class="text-white-50 small fw-medium" id="current-date"></div>
+        <a class="navbar-brand fw-bold" href="#">GLOBAL NEWS<span class="text-danger">.</span></a>
+        <div class="text-white-50 small" id="current-date"></div>
     </div>
 </nav>
 
 <div class="ticker-wrap d-flex align-items-center">
-    <span class="ticker-label shadow-sm">Breaking</span>
+    <span class="ticker-label">Live Feed</span>
     <div id="ticker-feed" class="ticker-content fw-bold text-dark">
-        Connecting to international news bureaus... Loading latest headlines...
+        Syncing with global news bureaus...
     </div>
 </div>
 
 <header class="hero-section text-center">
     <div class="container">
-        <h1 class="display-3 fw-bold mb-3">World News Hub</h1>
-        <p class="lead fw-light opacity-75">Your source for verified, high-impact international reporting.</p>
+        <h1 class="display-4 fw-bold">World Reporting Network</h1>
+        <p class="lead opacity-75">Verified international headlines updated in real-time.</p>
     </div>
 </header>
 
 <main class="container my-5">
-    <div class="d-flex justify-content-between align-items-end mb-4">
-        <h3 class="fw-bold m-0" style="border-left: 6px solid var(--gnn-red); padding-left: 15px;">TOP STORIES</h3>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold m-0" style="border-left: 5px solid var(--gnn-red); padding-left: 15px;">TOP STORIES</h3>
+        <button onclick="refreshNews()" class="btn btn-sm btn-outline-secondary"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
     </div>
     
-    <div class="row" id="main-content">
+    <div class="row g-4" id="main-content">
         <div class="text-center py-5">
-            <div class="spinner-grow text-danger" role="status"></div>
-            <p class="mt-3 text-muted fw-bold">Synchronizing with global feeds...</p>
+            <div class="spinner-border text-danger" role="status"></div>
+            <p class="mt-3 text-muted">Fetching latest reports...</p>
         </div>
     </div>
 </main>
 
 <footer class="footer">
     <div class="container text-center">
-        <h4 class="text-white mb-4 fw-bold">GLOBAL NEWS NETWORK</h4>
-        <div class="social-icons d-flex justify-content-center gap-4 mb-5">
-            <a href="#"><i class="bi bi-twitter-x"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-        </div>
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <p class="mb-4 opacity-50">Providing unbiased, 24/7 coverage of global events, financial shifts, and technological breakthroughs.</p>
-                <hr class="border-secondary opacity-25 mb-4">
-                <p class="small mb-1">© 2026 GNN International. All rights reserved.</p>
-                <p style="font-size: 0.9rem;" class="mt-2">
-                    Developed by <a href="https://github.com/almog787" class="builder-credit" target="_blank">Almog787</a>
-                </p>
-            </div>
-        </div>
+        <h5 class="text-white mb-3">GLOBAL NEWS NETWORK</h5>
+        <p class="small opacity-50">High-impact reporting. Unbiased coverage.</p>
+        <hr class="border-secondary opacity-25">
+        <p class="small">© 2026 GNN International | Developed by <a href="https://github.com/almog787" class="builder-credit" target="_blank">Almog787</a></p>
     </div>
 </footer>
 
 <script>
-    // 1. Current Date Update
-    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', dateOptions);
+    // 1. Current Date
+    document.getElementById('current-date').innerText = new Date().toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
 
-    // 2. Fetch & Display News with Cache Prevention
+    // 2. Fetch News from Google News RSS via RSS2JSON Proxy
     async function refreshNews() {
         const contentArea = document.getElementById('main-content');
         const ticker = document.getElementById('ticker-feed');
         
+        // Google News World Feed URL
+        const rssUrl = 'https://news.google.com/rss/topics/CAAqJggKIiBDQkFTRWdvSUwyMHZNRGx1YW5SNEVndmxia2dCR2dKSlRpZ0FQAQ?hl=en-US&gl=US&ceid=US:en';
+        const proxyUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}&api_key=00000000000000000000000000000000&count=15`;
+
         try {
-            // הוספת Timestamp כדי למנוע מהדפדפן להשתמש בחדשות ישנות מהזיכרון
-            const cacheBuster = new Date().getTime();
-            const response = await fetch(`https://saurav.tech/NewsAPI/top-headlines/category/general/us.json?v=${cacheBuster}`);
+            const response = await fetch(proxyUrl);
             const data = await response.json();
-            const articles = data.articles;
+            
+            if (data.status !== 'ok') throw new Error('API Sync failed');
 
-            ticker.innerHTML = articles.slice(0, 12).map(a => `• ${a.title}`).join(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ');
+            const articles = data.items;
 
+            // Update Ticker
+            ticker.innerHTML = articles.slice(0, 10).map(a => `• ${a.title}`).join(' &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ');
+
+            // Build Cards
             contentArea.innerHTML = '';
-            articles.slice(0, 18).forEach(item => {
-                if(!item.urlToImage) return; 
+            articles.forEach((item, index) => {
+                // Generate a consistent high-quality news image based on index/title
+                const imgId = 100 + index;
+                const imgSrc = `https://picsum.photos/seed/${imgId}/600/400`;
 
                 contentArea.innerHTML += `
-                    <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-                        <article class="card news-card w-100 shadow-sm">
-                            <img src="${item.urlToImage}" class="card-img-top" alt="${item.title}" onerror="this.src='https://via.placeholder.com/600x400?text=GNN+NEWS'">
+                    <div class="col-md-6 col-lg-4">
+                        <article class="card news-card shadow-sm">
+                            <img src="${imgSrc}" class="card-img-top" alt="News Image">
                             <div class="card-body d-flex flex-column p-4">
-                                <span class="card-category mb-2">${item.source.name}</span>
-                                <h2 class="card-title h5 mb-3">
-                                    <a href="${item.url}" target="_blank" class="text-decoration-none text-dark">${item.title}</a>
+                                <span class="text-danger fw-bold small mb-2">${item.author || 'WORLD DESK'}</span>
+                                <h2 class="h5 fw-bold mb-3">
+                                    <a href="${item.link}" target="_blank" class="text-decoration-none text-dark">${item.title}</a>
                                 </h2>
-                                <p class="card-text text-muted small mb-4">${item.description ? item.description.substring(0, 110) + '...' : 'Click read more to view the full story.'}</p>
-                                <div class="mt-auto d-flex justify-content-between align-items-center pt-3 border-top">
-                                    <span class="fw-bold text-muted" style="font-size: 0.7rem;">${new Date(item.publishedAt).toLocaleDateString()}</span>
-                                    <a href="${item.url}" target="_blank" class="btn btn-sm btn-danger px-3 fw-bold">READ STORY</a>
+                                <p class="small text-muted mb-4">Live update from verified international sources. Click for full coverage.</p>
+                                <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
+                                    <span class="small text-muted">${new Date(item.pubDate).toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}</span>
+                                    <a href="${item.link}" target="_blank" class="btn btn-sm btn-danger fw-bold">READ MORE</a>
                                 </div>
                             </div>
                         </article>
                     </div>`;
             });
         } catch (error) {
-            contentArea.innerHTML = `<div class="col-12 text-center py-5"><p class="alert alert-light border">Unable to reach news bureau. Please try again later.</p></div>`;
+            contentArea.innerHTML = `<div class="col-12 text-center py-5"><div class="alert alert-light border">Connection to news bureau timed out. Please refresh.</div></div>`;
         }
     }
 
