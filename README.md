@@ -1,7 +1,7 @@
 # 🏆 Sports Plus - Highlights & Live Scores Hub
 ## ספורט פלוס - פורטל תקצירים ותוצאות בזמן אמת
 
-> **Last Updated / עדכון אחרון:** 23/02/2026 09:59:06
+> **Last Updated / עדכון אחרון:** 23/02/2026 10:11:43
 
 ---
 
@@ -25,17 +25,17 @@
 ---
 
 ### 🚀 About the Project
-This project is an automated sports aggregator built with **Python** and **GitHub Actions**.
-- **Automated Data Fetching:** Scrapes highlights and live scores every 30 minutes.
-- **SEO Optimized:** Dynamic sitemap generation for better indexing.
-- **Zero Hosting Costs:** Runs entirely on GitHub infrastructure.
+This project is an automated sports aggregator. The live site is hosted here: [https://almog787.github.io/sports-highlights-hub/](https://almog787.github.io/sports-highlights-hub/)
+- **Automated Data Fetching:** Scrapes highlights and live scores every 30 minutes via GitHub Actions.
+- **SEO Optimized:** Dynamic sitemap generation and static meta-data for search engines.
+- **Bilingual Support:** Full support for Hebrew and English users.
 
 ### 🚀 אודות הפרויקט
-פרויקט זה הוא אגרגטור ספורט אוטומטי המבוסס על **Python** ו-**GitHub Actions**.
-- **איסוף נתונים אוטומטי:** סריקת תקצירים ותוצאות חיות כל 30 דקות.
-- **אופטימיזציית SEO:** יצירת מפת אתר דינמית לאינדוקס מקסימלי.
-- **אפס עלויות שרת:** רץ לחלוטין על התשתית של GitHub.
+אגרגטור ספורט אוטומטי המבוסס על Python. האתר זמין בכתובת: [https://almog787.github.io/sports-highlights-hub/](https://almog787.github.io/sports-highlights-hub/)
+- **איסוף נתונים אוטומטי:** סריקת תקצירים ותוצאות חיות כל 30 דקות בעזרת GitHub Actions.
+- **אופטימיזציית SEO:** יצירת מפת אתר דינמית (Sitemap) וניווט מבוסס URL.
+- **תמיכה דו-לשונית:** ממשק מלא בעברית ובאנגלית.
 
 ---
 
-## [🔗 Visit Live Site / כניסה לאתר החי](https://yourusername.github.io/your-repo-name/)
+## [🔗 Visit Live Site / כניסה לאתר החי](https://almog787.github.io/sports-highlights-hub/)
