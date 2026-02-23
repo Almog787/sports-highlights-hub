@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - main
+  workflow_run:
+    workflows: ["Update Live Streams"]
+    types:
+      - completed
 
 jobs:
   build:
@@ -13,55 +17,54 @@ jobs:
 
       - name: Generate README File
         run: |
-          echo "# 🌍 Global News Network (GNN) | Live Updates" > README.md
+          echo "# 🌌 GNN GLOBAL | Live Stream Universe" > README.md
           echo "" >> README.md
           echo "[![Site Status](https://img.shields.io/website?url=https%3A%2F%2Falmog787.github.io%2Fhighlights-hub%2F&logo=googlechrome&logoColor=white)](https://almog787.github.io/highlights-hub/)" >> README.md
           echo "[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/Almog787/highlights-hub/graphs/commit-activity)" >> README.md
           echo "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)" >> README.md
           echo "" >> README.md
-          echo "## 🔗 Live News Portal" >> README.md
-          echo "Access the high-speed global broadcasting hub here:" >> README.md
+          echo "## 🔗 Global Content Hub" >> README.md
+          echo "Access the automated live broadcasting universe here:" >> README.md
           echo "### 👉 **[https://almog787.github.io/highlights-hub/](https://almog787.github.io/highlights-hub/)**" >> README.md
           echo "" >> README.md
           echo "---" >> README.md
           echo "" >> README.md
           echo "## 🚀 Project Overview" >> README.md
-          echo "GNN is a sophisticated, **zero-backend** news aggregator engineered for real-time international reporting. By utilizing advanced client-side fetching, the platform remains lightweight, incredibly fast, and fully automated." >> README.md
+          echo "GNN Global is an **AI-driven live stream aggregator**. It uses a custom Python scraper to bypass traditional APIs, scanning YouTube for high-quality, real-time broadcasts across three major categories: Global News, Kids & Animation, and Movies/Entertainment." >> README.md
           echo "" >> README.md
           echo "### 🛠️ Key Features" >> README.md
-          echo "* ⚡ **Real-Time News:** Automated fetching of world headlines without manual intervention." >> README.md
-          echo "* 📉 **Financial Tickers:** Live market data integration via TradingView." >> README.md
-          echo "* 🔍 **SEO Optimized:** Built-in JSON-LD Schema for Google News & Discover eligibility." >> README.md
-          echo "* 📱 **Mobile First:** Fully responsive UI built with Bootstrap 5." >> README.md
-          echo "* 💰 **Monetization Ready:** Pre-integrated with Google AdSense (ca-pub-3359114283161345)." >> README.md
+          echo "* 🤖 **No-API Scraper:** Custom Python bot that discovers live streams using YouTube internal metadata." >> README.md
+          echo "* 📺 **Multi-Category:** Dynamic filtering for World News, Cartoons, and Cinema." >> README.md
+          echo "* 🔄 **Auto-Sync:** Content is refreshed every 6 hours via GitHub Actions." >> README.md
+          echo "* 💎 **Premium UI:** Glassmorphism design with a dark, cinematic aesthetic." >> README.md
+          echo "* 💰 **Monetization:** Fully integrated with Google AdSense and Analytics." >> README.md
           echo "" >> README.md
-          echo "## 📊 System Diagnostics" >> README.md
-          echo "| Feature | Details |" >> README.md
+          echo "## 📊 System Architecture" >> README.md
+          echo "| Component | Technology |" >> README.md
           echo "| :--- | :--- |" >> README.md
-          echo "| **Status** | Active 🟢 |" >> README.md
-          echo "| **Last Updated** | $(date -u '+%Y-%m-%d %H:%M:%S') UTC |" >> README.md
-          echo "| **Deployment** | GitHub Pages |" >> README.md
-          echo "| **Architecture** | Serverless / Static |" >> README.md
-          echo "| **Analytics** | GTM-8NEMWLX7BF |" >> README.md
+          echo "| **Bot Logic** | Python (yt-dlp based scraper) |" >> README.md
+          echo "| **Database** | Dynamic JSON storage (streams.json) |" >> README.md
+          echo "| **Frontend** | HTML5, CSS3 (Outfit Font), JavaScript ES6 |" >> README.md
+          echo "| **Automation** | GitHub Actions (6-hour refresh cycle) |" >> README.md
+          echo "| **Last Build** | $(date -u '+%Y-%m-%d %H:%M:%S') UTC |" >> README.md
           echo "" >> README.md
           echo "## 📉 Technical Stack" >> README.md
           echo "\`\`\`text" >> README.md
-          echo "Frontend: HTML5, CSS3, JavaScript (ES6+)" >> README.md
-          echo "Design: Bootstrap 5.3 + Bootstrap Icons" >> README.md
-          echo "Automation: GitHub Actions (README & Health Sync)" >> README.md
-          echo "Data Source: GNN International API Bureau" >> README.md
+          echo "Crawler: Custom Python Scraper (No-API implementation)" >> README.md
+          echo "UI: Bootstrap 5.3 + Glassmorphism Custom CSS" >> README.md
+          echo "Data Flow: Scraper -> JSON DB -> Vanilla JS Rendering" >> README.md
           echo "\`\`\`" >> README.md
           echo "" >> README.md
           echo "## 👨‍💻 Developer" >> README.md
-          echo "**Project Architect:** [Almog787](https://github.com/Almog787)" >> README.md
+          echo "**Lead Architect:** [Almog787](https://github.com/Almog787)" >> README.md
           echo "" >> README.md
           echo "---" >> README.md
-          echo "*This README is dynamically updated via GitHub Actions to ensure live accuracy.*" >> README.md
+          echo "*This README is dynamically updated. If you add new streams, the bot will categorize them automatically.*" >> README.md
 
       - name: Commit and Push changes
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: upgrade README to premium layout" || exit 0
+          git commit -m "docs: sync README with new Scraper architecture" || exit 0
           git push
