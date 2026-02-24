@@ -1,6 +1,12 @@
 {
     "moomins": [
         {
+            "id": "onKsXxEmAFY",
+            "title": "המומינים - פרק 1 - אביב בעמק המומינים | איכות גבוהה",
+            "ep_num": 1,
+            "url": "https://www.youtube.com/embed/onKsXxEmAFY"
+        },
+        {
             "id": "7ubKGb1pNuU",
             "title": "המומינים - פרק 4 + 5 - אי השמנטפים | איכות גבוהה",
             "ep_num": 4,
@@ -25,12 +31,6 @@
             "url": "https://www.youtube.com/embed/5Nm2SaB-w4E"
         },
         {
-            "id": "-g6jOGMLkDk",
-            "title": "המומינים - פרק 13 - הדרקון האחרון | איכות גבוהה",
-            "ep_num": 13,
-            "url": "https://www.youtube.com/embed/-g6jOGMLkDk"
-        },
-        {
             "id": "TzNKVGgTJvk",
             "title": "המומינים - פרק 14 - שכנים חדשים | איכות גבוהה",
             "ep_num": 14,
@@ -41,12 +41,6 @@
             "title": "המומינים - פרק 15 - נסיכה ליום אחד",
             "ep_num": 15,
             "url": "https://www.youtube.com/embed/JBYJubq7OZ4"
-        },
-        {
-            "id": "gFZ6Dzs6BMA",
-            "title": "המומינים - פרק 16 | יצורים מהחלל | [איכות גבוהה HD]",
-            "ep_num": 16,
-            "url": "https://www.youtube.com/embed/gFZ6Dzs6BMA"
         },
         {
             "id": "TcmTfYGmZB0",
@@ -79,12 +73,6 @@
             "url": "https://www.youtube.com/embed/x18j9Ok7CZM"
         },
         {
-            "id": "6sO7KXCZ_aw",
-            "title": "המומינים פרק 25 HD",
-            "ep_num": 25,
-            "url": "https://www.youtube.com/embed/6sO7KXCZ_aw"
-        },
-        {
             "id": "vIWvORBo5vY",
             "title": "המומינים פרק 27 HD",
             "ep_num": 27,
@@ -97,34 +85,10 @@
             "url": "https://www.youtube.com/embed/3CVuBI-vgZE"
         },
         {
-            "id": "u-M-PvstzAo",
-            "title": "המומינים פרק 32 HD",
-            "ep_num": 32,
-            "url": "https://www.youtube.com/embed/u-M-PvstzAo"
-        },
-        {
-            "id": "4Vchtd7uRA8",
-            "title": "המומינים פרק 34 HD",
-            "ep_num": 34,
-            "url": "https://www.youtube.com/embed/4Vchtd7uRA8"
-        },
-        {
             "id": "YJu9d3KXHh0",
             "title": "המומינים פרק 35 HD",
             "ep_num": 35,
             "url": "https://www.youtube.com/embed/YJu9d3KXHh0"
-        },
-        {
-            "id": "3l2AQRrEmUs",
-            "title": "המומינים פרק 36 HD",
-            "ep_num": 36,
-            "url": "https://www.youtube.com/embed/3l2AQRrEmUs"
-        },
-        {
-            "id": "34p2gYZnK8Q",
-            "title": "המומינים פרק 46 HD",
-            "ep_num": 46,
-            "url": "https://www.youtube.com/embed/34p2gYZnK8Q"
         },
         {
             "id": "_JD1dFhnTO4",
@@ -137,6 +101,12 @@
             "title": "המומינים פרק 49 חלק א HD",
             "ep_num": 49,
             "url": "https://www.youtube.com/embed/Ou7O75sGCg4"
+        },
+        {
+            "id": "oglplVzK9gA",
+            "title": "המומינים פרק 52 חלק א HD",
+            "ep_num": 52,
+            "url": "https://www.youtube.com/embed/oglplVzK9gA"
         },
         {
             "id": "qP0ue9RJwQM",
@@ -187,12 +157,6 @@
             "url": "https://www.youtube.com/embed/vX0OlqnOb0c"
         },
         {
-            "id": "PafHdJzE5Ig",
-            "title": "המומינים פרק 87 - מכונת הזמן",
-            "ep_num": 87,
-            "url": "https://www.youtube.com/embed/PafHdJzE5Ig"
-        },
-        {
             "id": "OsVzR85C0u8",
             "title": "המומינים פרק 88 - מה הסוד שלך",
             "ep_num": 88,
@@ -203,12 +167,6 @@
             "title": "המומינים פרק 89 - אמצע החורף",
             "ep_num": 89,
             "url": "https://www.youtube.com/embed/XeZuz31Xpz0"
-        },
-        {
-            "id": "vfTOOpnD08E",
-            "title": "המומינים פרק 91 חלק ב HD",
-            "ep_num": 91,
-            "url": "https://www.youtube.com/embed/vfTOOpnD08E"
         },
         {
             "id": "yJkcBWFR5PY",
@@ -247,22 +205,10 @@
             "url": "https://www.youtube.com/embed/ZjXRIj-EXZM"
         },
         {
-            "id": "oSawoA4ptSw",
-            "title": "המומינים  - משפחת מומין פרק 103",
-            "ep_num": 103,
-            "url": "https://www.youtube.com/embed/oSawoA4ptSw"
-        },
-        {
             "id": "73Mv60kDyMs",
             "title": "המומינים: יומן הרפתקאות - פרק 104 - ממלכת הזהב",
             "ep_num": 104,
             "url": "https://www.youtube.com/embed/73Mv60kDyMs"
-        },
-        {
-            "id": "d-Z5Twa4z1A",
-            "title": "המומינים פרק - 84 פסלים בחול",
-            "ep_num": 999,
-            "url": "https://www.youtube.com/embed/d-Z5Twa4z1A"
         },
         {
             "id": "RfgqOiVJGdA",
@@ -271,28 +217,232 @@
             "url": "https://www.youtube.com/embed/RfgqOiVJGdA"
         },
         {
+            "id": "d-Z5Twa4z1A",
+            "title": "המומינים פרק - 84 פסלים בחול",
+            "ep_num": 999,
+            "url": "https://www.youtube.com/embed/d-Z5Twa4z1A"
+        },
+        {
             "id": "bGxNUTy8NUc",
             "title": "המומינים פרק - 22 - הגבירה קרה",
             "ep_num": 999,
             "url": "https://www.youtube.com/embed/bGxNUTy8NUc"
         },
         {
-            "id": "Mc6r_QNWZwM",
-            "title": "המומינים פרק - 92 מפת האוצר",
+            "id": "9ugHEisYcrY",
+            "title": "01 - המומינים - אביב בעמק המומינים",
             "ep_num": 999,
-            "url": "https://www.youtube.com/embed/Mc6r_QNWZwM"
+            "url": "https://www.youtube.com/embed/9ugHEisYcrY"
         },
         {
             "id": "6PAbA2qD270",
             "title": "עמק המומינים - פרק ראשון המלא!! (סדרה חדשה)",
             "ep_num": 999,
             "url": "https://www.youtube.com/embed/6PAbA2qD270"
+        }
+    ],
+    "purim": [
+        {
+            "id": "cJtzNaS2tX4",
+            "title": "מחרוזת שירי פורים לילדים - שירי ילדות אהובים -  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/cJtzNaS2tX4"
         },
         {
-            "id": "9ugHEisYcrY",
-            "title": "01 - המומינים - אביב בעמק המומינים",
-            "ep_num": 999,
-            "url": "https://www.youtube.com/embed/9ugHEisYcrY"
+            "id": "LFrvM2vvoDI",
+            "title": "ילדות ישראלית - ספיישל פורים שמח - שירי ילדים ברצף - שירי פורים לילדים",
+            "url": "https://www.youtube.com/embed/LFrvM2vvoDI"
+        },
+        {
+            "id": "JKxQ4_LRBkI",
+            "title": "Purim Medley with Micha Gamerman (Official Animation Video)",
+            "url": "https://www.youtube.com/embed/JKxQ4_LRBkI"
+        },
+        {
+            "id": "r6QT2S0aljo",
+            "title": "איציק אשל - מחרוזת שיריי פורים | Itzik Eshel - Purim Songs Medley (פורים שמח אחדות ושלום לעם ישראל)",
+            "url": "https://www.youtube.com/embed/r6QT2S0aljo"
+        },
+        {
+            "id": "7Ki4LZ3N3Z8",
+            "title": "מחרוזת שירי פורים ברצף עם רינת גבאי - פורים בערוץ בייבי",
+            "url": "https://www.youtube.com/embed/7Ki4LZ3N3Z8"
+        },
+        {
+            "id": "6A0J0IJYWtg",
+            "title": "מחרוזת פורים 2026 הכי חזק ברשת 🎭 הלהיטים שירעידו את הרחבות! | האחים לוי דיג'ייס (Official Purim Mix)",
+            "url": "https://www.youtube.com/embed/6A0J0IJYWtg"
+        },
+        {
+            "id": "iFZzVq1XTv4",
+            "title": "מחרוזת שירי פורים עוזי חיטמן חני נחמיאס",
+            "url": "https://www.youtube.com/embed/iFZzVq1XTv4"
+        },
+        {
+            "id": "zIhu1k-C2wQ",
+            "title": "פורים 2026 דיג'י מאוריקו & בצלאל שמיר ויוסף חיים של'שמחות | מחרוזת פורים🥳",
+            "url": "https://www.youtube.com/embed/zIhu1k-C2wQ"
+        },
+        {
+            "id": "HHZOfcT66OU",
+            "title": "אני פורים - שירי פורים ברצף",
+            "url": "https://www.youtube.com/embed/HHZOfcT66OU"
+        },
+        {
+            "id": "PJLjX-rdf-Q",
+            "title": "שירי פורים ברצף - שירי פורים -  שירים לכל המשפחה",
+            "url": "https://www.youtube.com/embed/PJLjX-rdf-Q"
+        },
+        {
+            "id": "Dnc_VV3k6-M",
+            "title": "שירי חג פורים עם רעותי כוכבת הילדים- 25 דקות לשמיעה ברצף",
+            "url": "https://www.youtube.com/embed/Dnc_VV3k6-M"
+        },
+        {
+            "id": "I62vpwtDXQk",
+            "title": "מחרוזת פורים - שירי חג פורים - שרי פופ",
+            "url": "https://www.youtube.com/embed/I62vpwtDXQk"
+        },
+        {
+            "id": "DCU8XuQxLDk",
+            "title": "מחרוזת פורים עם ניצי קפיצי",
+            "url": "https://www.youtube.com/embed/DCU8XuQxLDk"
+        },
+        {
+            "id": "_stS2OuIM0M",
+            "title": "פורים חגיגה I קינדרלעך עוזיה צדוק ומקהלת שירה Purim Hagiga I Kinderlach & Uziya Tzadok & Shira",
+            "url": "https://www.youtube.com/embed/_stS2OuIM0M"
+        },
+        {
+            "id": "ogfbC9pYXsQ",
+            "title": "מחרוזת שירי פורים | הרבנות הצבאית ואיחוד הלהקות במחרוזת שתרים לנו את המורל",
+            "url": "https://www.youtube.com/embed/ogfbC9pYXsQ"
+        },
+        {
+            "id": "q4rmjRanwXQ",
+            "title": "מחרוזת שירי פורים לילדים בגן 🎭 | ליצן קטן שלי, ליהודים הייתה, שושנת יעקב | פיקבו Peekaboo",
+            "url": "https://www.youtube.com/embed/q4rmjRanwXQ"
+        },
+        {
+            "id": "tjvNL6ouKfg",
+            "title": "Purim songs as Adar begins | Misha Misha #Purim",
+            "url": "https://www.youtube.com/embed/tjvNL6ouKfg"
+        },
+        {
+            "id": "-8e93wCOLAs",
+            "title": "מחרוזת שירי פורים לילדים - שירים לפורים | EZToddler",
+            "url": "https://www.youtube.com/embed/-8e93wCOLAs"
+        },
+        {
+            "id": "8HSYzUIQMYU",
+            "title": "שירי פורים לילדים ולגננות| 20 דקות ברצף | עם שקד פיית האגדות",
+            "url": "https://www.youtube.com/embed/8HSYzUIQMYU"
+        },
+        {
+            "id": "vJKMzXv6gmI",
+            "title": "שירי פורים לילדים | מחרוזת שירי חג פורים",
+            "url": "https://www.youtube.com/embed/vJKMzXv6gmI"
+        }
+    ],
+    "kids_songs": [
+        {
+            "id": "jXKg-67KFKY",
+            "title": "יחד כל הדרך! מחרוזת שירי ילדים ברצף - יחד ננצח - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/jXKg-67KFKY"
+        },
+        {
+            "id": "qH3vXuajKF4",
+            "title": "שירי ילדים ברצף - מחרוזת שירי ילדות ישראלית 2024 - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/qH3vXuajKF4"
+        },
+        {
+            "id": "DpinVPmK8XI",
+            "title": "שירי ילדים ברצף - מחרוזת שירי ילדות ישראלית 1 - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/DpinVPmK8XI"
+        },
+        {
+            "id": "VT1R37o-d3I",
+            "title": "כך נולד הצבע - שירי ילדים אהובים -  שירי ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/VT1R37o-d3I"
+        },
+        {
+            "id": "5jOQ4KynHto",
+            "title": "מחרוזת שירי אריק איינשטיין - שירי ילדים ברצף - שירי ילדות אהובים -  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/5jOQ4KynHto"
+        },
+        {
+            "id": "YMLsE_DMPGQ",
+            "title": "מחרוזת שירי עוזי חיטמן - שירים לילדים ופעוטות בילדות ישראלית",
+            "url": "https://www.youtube.com/embed/YMLsE_DMPGQ"
+        },
+        {
+            "id": "Y1DUYLhl0H0",
+            "title": "שירי ילדים אריק איינשטיין ברצף - שירי ילדות אהובים -  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/Y1DUYLhl0H0"
+        },
+        {
+            "id": "6zSNLtoVnTU",
+            "title": "ספיישל מתי כספי - שירים לילדים ברצף - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/6zSNLtoVnTU"
+        },
+        {
+            "id": "FJfrN6I-mUo",
+            "title": "דנה ודרור שירים ישראלים - מחרוזת שירי ילדים עם דרור קרן ודנה עדיני - שירים לילדים ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/FJfrN6I-mUo"
+        },
+        {
+            "id": "EEb8d96WP5s",
+            "title": "שירי ילדים שמחים - מחרוזת שירים שמחים ברצף - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/EEb8d96WP5s"
+        },
+        {
+            "id": "m7ximM2ERCw",
+            "title": "מחרוזת שירי חגי תשרי - שירים לראש השנה, יום כיפור וסוכות-שירים ברצף לילדים ולפעוטות - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/m7ximM2ERCw"
+        },
+        {
+            "id": "0zMskHa5SC0",
+            "title": "שירי ילדים קטנים - שירי קטנטנים ברצף - כך נולד הצבע, מי שטוב לו ושמח, פילפילון ועוד -  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/0zMskHa5SC0"
+        },
+        {
+            "id": "ZD6OXOEQ5Sw",
+            "title": "מחרוזת שירים שקטים ורגועים - שירים ברצף - ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/ZD6OXOEQ5Sw"
+        },
+        {
+            "id": "Db-BkQq9h6s",
+            "title": "שירים לפני השינה - שירי ערש לילדים - לילה טוב עם ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/Db-BkQq9h6s"
+        },
+        {
+            "id": "E1nHNtO2WQk",
+            "title": "מחרוזת שירי קיץ - ילדות ישראלית - שירי ילדים ברצף",
+            "url": "https://www.youtube.com/embed/E1nHNtO2WQk"
+        },
+        {
+            "id": "fgpGeo-e7jE",
+            "title": "מחרוזת שיר נעמי שמר - שירים ברצף לילדים ולפעוטות",
+            "url": "https://www.youtube.com/embed/fgpGeo-e7jE"
+        },
+        {
+            "id": "h_Zl8AVpmqQ",
+            "title": "שירי ילדים מקוריים + שירי ילדות ישראלית 🎶 | 40 דקות של שירים חינוכיים לפעוטות | שרים עם רותמאמא",
+            "url": "https://www.youtube.com/embed/h_Zl8AVpmqQ"
+        },
+        {
+            "id": "sF3pmyiTCfU",
+            "title": "ספיישל שירים ודקלומים לקטנטנים לפני השינה -  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/sF3pmyiTCfU"
+        },
+        {
+            "id": "vra3fOhDfQ8",
+            "title": "אוסף שירי אהוד מנור - ילדות ישראלית - שירי ילדים ברצף - שם מעבר לקשת, אחותי הקטנה, שלום כיתה א' ועוד",
+            "url": "https://www.youtube.com/embed/vra3fOhDfQ8"
+        },
+        {
+            "id": "9ujZ_SeN8Uk",
+            "title": "השירים שהכי כיף לרקוד איתם -שירי ילדות ישראלית-  ילדות ישראלית",
+            "url": "https://www.youtube.com/embed/9ujZ_SeN8Uk"
         }
     ],
     "cartoons": [
@@ -312,14 +462,14 @@
             "url": "https://www.youtube.com/embed/aPGvK6tJMXk"
         },
         {
-            "id": "RXoDbwZmXV8",
-            "title": "Big Bear Adventures Live! | We Bear Bears | Cartoon Network | Cartoons for Kids",
-            "url": "https://www.youtube.com/embed/RXoDbwZmXV8"
-        },
-        {
             "id": "uZc9VKf9XPQ",
             "title": "FULL EPISODES: The Amazing World of Gumball, Teen Titans Go! and Regular Show | @cartoonnetworkuk",
             "url": "https://www.youtube.com/embed/uZc9VKf9XPQ"
+        },
+        {
+            "id": "XfZetbS9084",
+            "title": "🔴 LIVE: BABY LOONEY TUNES | Fun, Teamwork and Stories | Cartoons for Kids | @cartoonito",
+            "url": "https://www.youtube.com/embed/XfZetbS9084"
         },
         {
             "id": "yHmPWzkhcZ8",
@@ -337,39 +487,14 @@
             "url": "https://www.youtube.com/embed/qbBBhZeYUqY"
         },
         {
-            "id": "7Nw4A-P0rug",
-            "title": "🔴 LIVE 24/7! Sofia the First Season 1 Full Episodes 👑  | @disneyjr​",
-            "url": "https://www.youtube.com/embed/7Nw4A-P0rug"
-        },
-        {
             "id": "NnqqoM6NaFw",
             "title": "🔴 LIVE! 24 HOURS SuperKitties Livestream! Full Episodes, Su-Purr Adventures, & More! 🐱🩵 | @disneyjr",
             "url": "https://www.youtube.com/embed/NnqqoM6NaFw"
         },
         {
-            "id": "lozNmUJe0Dg",
-            "title": "🔴 LIVE: SpongeBob Moments of Magic! 🧙 24/7 Marathon | @Nicktoons ​",
-            "url": "https://www.youtube.com/embed/lozNmUJe0Dg"
-        },
-        {
-            "id": "5-6_PVhnZ0g",
-            "title": "🔴 LIVE: SpongeBob's Most Extreme Weather Marathon! 🔥❄️ | Nickelodeon",
-            "url": "https://www.youtube.com/embed/5-6_PVhnZ0g"
-        },
-        {
-            "id": "jM5ca1QXZDY",
-            "title": "🔴LIVE: SpongeBob - Season 2 Marathon | @SpongeBobOfficial",
-            "url": "https://www.youtube.com/embed/jM5ca1QXZDY"
-        },
-        {
-            "id": "_HviSyC7zSU",
-            "title": "🔴 LIVE! Phineas and Ferb Season 1 Full Episodes! | @disneychannelanimation  ​",
-            "url": "https://www.youtube.com/embed/_HviSyC7zSU"
-        },
-        {
-            "id": "hH3A_i6oyK0",
-            "title": "🔴 LIVE: PAW Patrol's Ultimate Rescues & Adventures! w/ Marshall, Chase & Skye | Nick Jr.",
-            "url": "https://www.youtube.com/embed/hH3A_i6oyK0"
+            "id": "7Nw4A-P0rug",
+            "title": "🔴 LIVE 24/7! Sofia the First Season 1 Full Episodes 👑  | @disneyjr​",
+            "url": "https://www.youtube.com/embed/7Nw4A-P0rug"
         }
     ]
 }
