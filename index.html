@@ -17,7 +17,9 @@
     
     <style>
         :root { --bg: #050a18; --accent: #ffcc00; --moomin-blue: #7dd3fc; }
-        body { background-color: var(--bg); color: white; font-family: 'Outfit', sans-serif; }
+        body { background-color: var(--bg); color: white; font-family: 'Outfit', sans-serif; min-height: 100vh; }
+        
+        .navbar { border-bottom: 1px solid rgba(255,255,255,0.1); }
         
         .section-title { 
             font-weight: 900; margin: 40px 0 20px; border-left: 5px solid var(--accent); padding-left: 15px;
@@ -26,20 +28,25 @@
         .moomin-section { border-left-color: var(--moomin-blue); color: var(--moomin-blue); }
 
         .stream-grid { 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; 
+            min-height: 100px; /* מונע קפיצות של הדף */
         }
 
         .stream-card { 
             background: rgba(255,255,255,0.03); border-radius: 15px; overflow: hidden; 
             border: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+            height: 100%;
         }
-        .stream-card:hover { transform: translateY(-5px); border-color: var(--accent); }
+        .stream-card:hover { transform: translateY(-5px); border-color: var(--accent); background: rgba(255,255,255,0.05); }
 
-        .video-box { position: relative; padding-bottom: 56.25%; height: 0; }
+        .video-box { position: relative; padding-bottom: 56.25%; height: 0; background: #000; }
         .video-box iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
         
-        .info { padding: 12px; font-size: 0.85rem; font-weight: 500; }
-        .ep-tag { background: var(--moomin-blue); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: 900; margin-right: 5px; }
+        .info { padding: 15px; font-size: 0.9rem; font-weight: 500; }
+        .ep-tag { background: var(--moomin-blue); color: #000; padding: 2px 8px; border-radius: 4px; font-weight: 900; margin-right: 5px; font-size: 0.75rem; }
+        
+        /* Loader simple animation */
+        .loader { text-align: center; padding: 50px; font-weight: bold; color: var(--accent); }
     </style>
 </head>
 <body>
@@ -48,43 +55,71 @@
     <div class="container"><a class="navbar-brand fw-bold" href="#">TOON<span class="text-warning">UNIVERSE</span></a></div>
 </nav>
 
-<div class="container">
-    <h2 class="section-title moomin-section">🍄 The Moomins (Hebrew Dub)</h2>
-    <div class="stream-grid" id="moomin-grid"></div>
+<div class="container pb-5">
+    <div id="moomin-container">
+        <h2 class="section-title moomin-section">🍄 The Moomins (Hebrew Dub)</h2>
+        <div class="stream-grid" id="moomin-grid"><div class="loader">Loading Episodes...</div></div>
+    </div>
 
-    <h2 class="section-title">📺 24/7 Live Cartoons</h2>
-    <div class="stream-grid" id="live-grid"></div>
+    <div id="live-container">
+        <h2 class="section-title">📺 24/7 Live Cartoons</h2>
+        <div class="stream-grid" id="live-grid"><div class="loader">Loading Live Streams...</div></div>
+    </div>
 </div>
 
 <script>
     async function loadContent() {
+        const moominGrid = document.getElementById('moomin-grid');
+        const liveGrid = document.getElementById('live-grid');
+
         try {
-            const res = await fetch('streams.json');
+            const res = await fetch('streams.json?v=' + new Date().getTime()); // מניעת Cache של הדפדפן
+            if (!res.ok) throw new Error("JSON not found");
             const data = await res.json();
 
-            // טעינת המומינים
-            const moominGrid = document.getElementById('moomin-grid');
-            data.moomins.forEach(ep => {
-                moominGrid.innerHTML += `
-                    <div class="stream-card">
-                        <div class="video-box"><iframe src="${ep.url}" allowfullscreen loading="lazy"></iframe></div>
-                        <div class="info"><span class="ep-tag">EP ${ep.ep_num}</span> ${ep.title}</div>
-                    </div>`;
-            });
+            // טעינת המומינים - בנייה במחרוזת אחת ורק אז הזרקה ל-HTML (יעיל יותר)
+            let moominHTML = '';
+            if (data.moomins && data.moomins.length > 0) {
+                data.moomins.forEach(ep => {
+                    moominHTML += `
+                        <div class="stream-card">
+                            <div class="video-box">
+                                <iframe src="${ep.url}" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="info"><span class="ep-tag">EP ${ep.ep_num}</span> ${ep.title}</div>
+                        </div>`;
+                });
+                moominGrid.innerHTML = moominHTML;
+            } else {
+                moominGrid.innerHTML = '<p class="p-3">No episodes found.</p>';
+            }
 
             // טעינת שידורים חיים
-            const liveGrid = document.getElementById('live-grid');
-            data.cartoons.forEach(s => {
-                liveGrid.innerHTML += `
-                    <div class="stream-card">
-                        <div class="video-box"><iframe src="${s.url}" allowfullscreen loading="lazy"></iframe></div>
-                        <div class="info">🔴 LIVE: ${s.title}</div>
-                    </div>`;
-            });
+            let liveHTML = '';
+            if (data.cartoons && data.cartoons.length > 0) {
+                data.cartoons.forEach(s => {
+                    liveHTML += `
+                        <div class="stream-card">
+                            <div class="video-box">
+                                <iframe src="${s.url}" allowfullscreen loading="lazy"></iframe>
+                            </div>
+                            <div class="info">🔴 LIVE: ${s.title}</div>
+                        </div>`;
+                });
+                liveGrid.innerHTML = liveHTML;
+            } else {
+                liveGrid.innerHTML = '<p class="p-3">No live streams currently active.</p>';
+            }
 
-        } catch (e) { console.error("Data not ready..."); }
+        } catch (e) { 
+            console.error("Error loading streams:", e);
+            moominGrid.innerHTML = '<div class="alert alert-warning">The universe is taking a nap. Please refresh in a minute!</div>';
+            liveGrid.innerHTML = '';
+        }
     }
-    window.onload = loadContent;
+
+    // שימוש ב-DOMContentLoaded במקום window.onload - מהיר ובטוח יותר
+    document.addEventListener('DOMContentLoaded', loadContent);
 </script>
 </body>
 </html>
