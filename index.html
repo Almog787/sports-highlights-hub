@@ -93,6 +93,9 @@
 
         footer { background: white; padding: 20px 0; margin-top: auto; border-top: 1px solid #eee; }
         .credit-text { color: #555; font-weight: 600; margin: 0; }
+        
+        /* עיצוב משופר לשעון ולתאריך */
+        #current-time-container { font-size: 0.9rem; line-height: 1.2; text-align: left; }
     </style>
 </head>
 <body>
@@ -100,7 +103,11 @@
 <header class="bg-white py-3 border-bottom">
     <div class="container d-flex justify-content-between align-items-center">
         <h2 class="m-0 fw-800 text-primary"><i class="bi bi-music-note-beamed"></i> דשבורד גננות</h2>
-        <span id="current-time" class="badge bg-light text-dark p-2"></span>
+        <div id="current-time-container" class="badge bg-light text-dark p-2 border">
+            <div id="clock-time" class="fw-bold fs-6"></div>
+            <div id="date-hebrew" style="font-size: 0.75rem; color: #666;"></div>
+            <div id="date-gregorian" style="font-size: 0.75rem; color: #666;"></div>
+        </div>
     </div>
 </header>
 
@@ -128,7 +135,7 @@
 
 <footer>
     <div class="container text-center">
-        <p class="m-0 text-muted">נהנה באהבה לגננות ישראל &copy; 2026</p>
+        <p class="m-0 text-muted">נבנה באהבה לגננות ישראל &copy; 2026</p>
         <p class="credit-text">Developed by Almog787</p>
     </div>
 </footer>
@@ -183,10 +190,23 @@
         } catch (e) { console.error("שגיאה בטעינת הקבצים:", e); }
     }
 
-    setInterval(() => {
+    // עדכון שעון ותאריך
+    function updateDateTime() {
         const now = new Date();
-        document.getElementById('current-time').innerText = now.toLocaleTimeString('he-IL');
-    }, 1000);
+        
+        // שעון
+        document.getElementById('clock-time').innerText = now.toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        
+        // תאריך לועזי
+        document.getElementById('date-gregorian').innerText = now.toLocaleDateString('he-IL', { day: 'numeric', month: 'long', year: 'numeric' });
+        
+        // תאריך עברי
+        const hebrewDate = new Intl.DateTimeFormat('he-IL-u-ca-hebrew', { day: 'numeric', month: 'long', year: 'numeric' }).format(now);
+        document.getElementById('date-hebrew').innerText = hebrewDate;
+    }
+
+    setInterval(updateDateTime, 1000);
+    updateDateTime(); // הרצה ראשונית
 
     initDashboard();
 </script>
