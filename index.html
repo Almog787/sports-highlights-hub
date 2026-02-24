@@ -65,19 +65,10 @@
         .btn-manual { color: var(--manual-color); border: 1px solid var(--manual-color); }
         .btn-manual.active { background: var(--manual-color); color: white; }
 
-        /* שורת חיפוש */
-        .search-container {
-            max-width: 500px;
-            margin: 20px auto 0;
-            padding: 0 15px;
-        }
+        .search-container { max-width: 500px; margin: 20px auto 0; padding: 0 15px; }
         .search-input {
-            border-radius: 25px;
-            padding: 10px 20px;
-            border: 2px solid #ddd;
-            width: 100%;
-            outline: none;
-            transition: 0.3s;
+            border-radius: 25px; padding: 10px 20px; border: 2px solid #ddd;
+            width: 100%; outline: none; transition: 0.3s; text-align: center;
         }
         .search-input:focus { border-color: var(--classics-color); box-shadow: 0 0 8px rgba(33, 150, 243, 0.2); }
 
@@ -85,11 +76,8 @@
         .stream-grid.active { display: grid; }
 
         .video-card {
-            background: white;
-            border-radius: 18px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-bottom: 4px solid #ccc;
+            background: white; border-radius: 18px; overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #ccc;
         }
 
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; cursor: pointer; }
@@ -102,7 +90,6 @@
             border-radius: 50%; display: flex; align-items: center; justify-content: center;
             color: white; font-size: 30px; z-index: 2; transition: 0.3s;
         }
-        .video-container:hover .play-button { transform: translate(-50%, -50%) scale(1.1); background-color: #f00; }
         
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .video-title { padding: 12px; font-weight: 600; font-size: 0.9rem; height: 60px; overflow: hidden; }
@@ -140,7 +127,7 @@
 </div>
 
 <div class="search-container">
-    <input type="text" id="songSearch" class="search-input" placeholder="חפשי שיר לפי שם..." onkeyup="filterSongs()">
+    <input type="text" id="songSearch" class="search-input" placeholder="חפשי שיר..." onkeyup="filterSongs()">
 </div>
 
 <main class="container py-4">
@@ -165,24 +152,17 @@
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         btn.classList.add('active');
-        // איפוס החיפוש במעבר קטגוריה כדי לא לבלבל
         document.getElementById('songSearch').value = '';
         filterSongs();
     }
 
-    // פונקציית החיפוש
     function filterSongs() {
         const query = document.getElementById('songSearch').value.toLowerCase();
         const activeGrid = document.querySelector('.stream-grid.active');
         const cards = activeGrid.querySelectorAll('.video-card');
-
         cards.forEach(card => {
             const title = card.querySelector('.video-title').innerText.toLowerCase();
-            if (title.includes(query)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
+            card.style.display = title.includes(query) ? "block" : "none";
         });
     }
 
@@ -199,22 +179,16 @@
         try {
             const resAuto = await fetch('streams.json?v=' + Date.now());
             const dataAuto = await resAuto.json();
-
             let dataManual = { my_links: [] };
             try {
                 const resManual = await fetch('manual_links.json?v=' + Date.now());
                 if (resManual.ok) dataManual = await resManual.json();
-            } catch (e) { console.warn("Manual links file not found."); }
+            } catch (e) {}
 
-            const allData = { 
-                ...dataAuto, 
-                "manual_section": dataManual.my_links || [] 
-            };
-            
+            const allData = { ...dataAuto, "manual_section": dataManual.my_links || [] };
             for (const [key, items] of Object.entries(allData)) {
                 const grid = document.getElementById(key);
                 if (!grid) continue;
-                
                 grid.innerHTML = items.map(item => `
                     <div class="video-card">
                         <div class="video-container" onclick="loadVideo(this, '${item.url}')">
@@ -225,47 +199,35 @@
                     </div>
                 `).join('');
             }
-        } catch (e) { console.error("שגיאה בטעינת הקבצים:", e); }
+        } catch (e) {}
     }
 
     function getGematria(num) {
-        const letters = {
-            1000: 'תתק', 900: 'תתק', 800: 'תת', 700: 'תש', 600: 'תר', 500: 'תק', 400: 'ת', 300: 'ש', 200: 'ר', 100: 'ק',
-            90: 'צ', 80: 'פ', 70: 'ע', 60: 'ס', 50: 'נ', 40: 'מ', 30: 'ל', 20: 'כ', 10: 'י',
-            9: 'ט', 8: 'ח', 7: 'ז', 6: 'ו', 5: 'ה', 4: 'ד', 3: 'ג', 2: 'ב', 1: 'א'
-        };
-        let str = '';
-        if (num >= 5000) num -= 5000;
-        const keys = Object.keys(letters).sort((a, b) => b - a);
-        for (let key of keys) {
-            while (num >= key) {
-                if (num === 15) { str += 'טו'; num = 0; break; }
-                if (num === 16) { str += 'טז'; num = 0; break; }
-                str += letters[key];
-                num -= key;
+        const letters = {1000:'תתק',900:'תתק',800:'תת',700:'תש',600:'תר',500:'תק',400:'ת',300:'ש',200:'ר',100:'ק',90:'צ',80:'פ',70:'ע',60:'ס',50:'נ',40:'מ',30:'ל',20:'כ',10:'י',9:'ט',8:'ח',7:'ז',6:'ו',5:'ה',4:'ד',3:'ג',2:'ב',1:'א'};
+        let str = ''; if (num >= 5000) num -= 5000;
+        const keys = Object.keys(letters).sort((a,b)=>b-a);
+        for(let key of keys){
+            while(num>=key){
+                if(num===15){str+='טו';num=0;break;}
+                if(num===16){str+='טז';num=0;break;}
+                str+=letters[key]; num-=key;
             }
         }
-        if (str.length === 1) return str + "'";
-        return str.slice(0, -1) + '"' + str.slice(-1);
+        return str.length === 1 ? str+"'" : str.slice(0,-1)+'"'+str.slice(-1);
     }
 
     function updateDateTime() {
         const now = new Date();
-        document.getElementById('clock-time').innerText = now.toLocaleTimeString('he-IL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
-        document.getElementById('date-gregorian').innerText = now.toLocaleDateString('he-IL', { day: 'numeric', month: 'long', year: 'numeric' });
-        const heOptions = { day: 'numeric', month: 'long', year: 'numeric' };
-        const heDateParts = new Intl.DateTimeFormat('he-IL-u-ca-hebrew', heOptions).formatToParts(now);
-        const day = parseInt(heDateParts.find(p => p.type === 'day').value);
-        const month = heDateParts.find(p => p.type === 'month').value;
-        const year = parseInt(heDateParts.find(p => p.type === 'year').value);
-        const hebrewFormatted = `${getGematria(day)} ב${month} ${getGematria(year)}`;
-        document.getElementById('date-hebrew').innerText = hebrewFormatted;
+        document.getElementById('clock-time').innerText = now.toLocaleTimeString('he-IL');
+        document.getElementById('date-gregorian').innerText = now.toLocaleDateString('he-IL', {day:'numeric', month:'long', year:'numeric'});
+        const heParts = new Intl.DateTimeFormat('he-IL-u-ca-hebrew', {day:'numeric', month:'long', year:'numeric'}).formatToParts(now);
+        const day = parseInt(heParts.find(p=>p.type==='day').value);
+        const month = heParts.find(p=>p.type==='month').value;
+        const year = parseInt(heParts.find(p=>p.type==='year').value);
+        document.getElementById('date-hebrew').innerText = `${getGematria(day)} ב${month} ${getGematria(year)}`;
     }
 
-    setInterval(updateDateTime, 1000);
-    updateDateTime();
-    initDashboard();
+    setInterval(updateDateTime, 1000); updateDateTime(); initDashboard();
 </script>
-
 </body>
 </html>
