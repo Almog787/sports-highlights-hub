@@ -13,9 +13,11 @@
       gtag('config', 'G-8NEMWLX7BF');
     </script>
 
+    <meta name="google-adsense-account" content="ca-pub-3359114283161345">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>דשבורד גננות | יום הולדת ומוזיקה</title>
+    <title>דשבורד גננות | המרכז המוזיקלי</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;500;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,8 +28,11 @@
             --purim-color: #9c27b0;
             --morning-color: #ff9800;
             --movement-color: #4caf50;
-            --birthday-color: #e91e63; /* ורוד יום הולדת */
+            --birthday-color: #e91e63;
             --manual-color: #e67e22;
+            --classics-color: #2196f3;
+            --relax-color: #607d8b;
+            --story-color: #795548;
         }
         
         body { background-color: #f0f2f5; font-family: 'Assistant', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -35,7 +40,7 @@
         .category-bar {
             background: white; padding: 15px 0; position: sticky; top: 0;
             z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            overflow-x: auto; white-space: nowrap;
+            overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch;
         }
 
         .nav-btn {
@@ -44,17 +49,23 @@
             display: inline-flex; align-items: center; gap: 8px;
         }
 
-        /* צבעי כפתורים */
+        /* עיצוב כפתורים לפי קטגוריות */
         .btn-manual { color: var(--manual-color); border: 1px solid var(--manual-color); }
         .btn-manual.active { background: var(--manual-color); color: white; }
+        .btn-birthday { color: var(--birthday-color); border: 1px solid var(--birthday-color); }
+        .btn-birthday.active { background: var(--birthday-color); color: white; }
         .btn-purim { color: var(--purim-color); border: 1px solid var(--purim-color); }
         .btn-purim.active { background: var(--purim-color); color: white; }
         .btn-morning { color: var(--morning-color); border: 1px solid var(--morning-color); }
         .btn-morning.active { background: var(--morning-color); color: white; }
         .btn-movement { color: var(--movement-color); border: 1px solid var(--movement-color); }
         .btn-movement.active { background: var(--movement-color); color: white; }
-        .btn-birthday { color: var(--birthday-color); border: 1px solid var(--birthday-color); }
-        .btn-birthday.active { background: var(--birthday-color); color: white; }
+        .btn-classics { color: var(--classics-color); border: 1px solid var(--classics-color); }
+        .btn-classics.active { background: var(--classics-color); color: white; }
+        .btn-relax { color: var(--relax-color); border: 1px solid var(--relax-color); }
+        .btn-relax.active { background: var(--relax-color); color: white; }
+        .btn-story { color: var(--story-color); border: 1px solid var(--story-color); }
+        .btn-story.active { background: var(--story-color); color: white; }
 
         .search-container { max-width: 500px; margin: 20px auto 0; padding: 0 15px; }
         .search-input {
@@ -65,18 +76,22 @@
         .stream-grid { display: none; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; padding: 20px 0; }
         .stream-grid.active { display: grid; }
 
-        .video-card { background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #ccc; }
+        .video-card { background: white; border-radius: 18px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); border-bottom: 4px solid #ccc; transition: transform 0.2s; }
+        .video-card:hover { transform: translateY(-5px); }
         .video-container { position: relative; padding-bottom: 56.25%; height: 0; background-color: #000; cursor: pointer; }
-        .video-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.8; }
-        .video-title { padding: 12px; font-weight: 600; font-size: 0.9rem; height: 60px; overflow: hidden; }
+        .video-container img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.9; }
+        .video-title { padding: 12px; font-weight: 600; font-size: 0.95rem; height: 65px; overflow: hidden; display: flex; align-items: center; justify-content: center; text-align: center; }
 
+        header { background: white; border-bottom: 1px solid #eee; }
         footer { background: white; padding: 20px 0; margin-top: auto; border-top: 1px solid #eee; text-align: center; }
         #current-time-container { font-size: 0.9rem; line-height: 1.2; text-align: left; }
+        
+        iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body>
 
-<header class="bg-white py-3 border-bottom">
+<header class="py-3">
     <div class="container d-flex justify-content-between align-items-center">
         <h2 class="m-0 fw-800 text-primary"><i class="bi bi-music-note-beamed"></i> דשבורד גננות</h2>
         <div id="current-time-container" class="badge bg-light text-dark p-2 border">
@@ -94,11 +109,14 @@
         <button class="nav-btn btn-purim" onclick="switchCat('purim', this)"><i class="bi bi-mask"></i> פורים</button>
         <button class="nav-btn btn-morning" onclick="switchCat('morning_circle', this)"><i class="bi bi-sun"></i> מפגש בוקר</button>
         <button class="nav-btn btn-movement" onclick="switchCat('movement_play', this)"><i class="bi bi-person-walking"></i> תנועה</button>
+        <button class="nav-btn btn-classics" onclick="switchCat('israeli_classics', this)"><i class="bi bi-flag"></i> שירי ילדות</button>
+        <button class="nav-btn btn-relax" onclick="switchCat('relaxation_sleep', this)"><i class="bi bi-moon-stars"></i> מנוחה</button>
+        <button class="nav-btn btn-story" onclick="switchCat('story_time', this)"><i class="bi bi-book"></i> שעת סיפור</button>
     </div>
 </nav>
 
 <div class="search-container">
-    <input type="text" id="songSearch" class="search-input" placeholder="חפשי שיר..." onkeyup="filterSongs()">
+    <input type="text" id="songSearch" class="search-input" placeholder="חפשי שיר ברשימה..." onkeyup="filterSongs()">
 </div>
 
 <main class="container py-4">
@@ -107,6 +125,9 @@
     <div id="purim" class="stream-grid"></div>
     <div id="morning_circle" class="stream-grid"></div>
     <div id="movement_play" class="stream-grid"></div>
+    <div id="israeli_classics" class="stream-grid"></div>
+    <div id="relaxation_sleep" class="stream-grid"></div>
+    <div id="story_time" class="stream-grid"></div>
 </main>
 
 <footer>
@@ -115,6 +136,7 @@
 </footer>
 
 <script>
+    // מעבר בין קטגוריות
     function switchCat(id, btn) {
         document.querySelectorAll('.stream-grid').forEach(g => g.classList.remove('active'));
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
@@ -123,8 +145,10 @@
         btn.classList.add('active');
         document.getElementById('songSearch').value = '';
         filterSongs();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    // חיפוש שירים
     function filterSongs() {
         const query = document.getElementById('songSearch').value.toLowerCase();
         const activeGrid = document.querySelector('.stream-grid.active');
@@ -135,40 +159,51 @@
         });
     }
 
+    // טעינת נגן יוטיוב בלחיצה
     function loadVideo(container, videoUrl) {
-        container.innerHTML = `<iframe src="${videoUrl}&autoplay=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+        container.innerHTML = `<iframe src="${videoUrl}${videoUrl.includes('?') ? '&' : '?'}autoplay=1" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
     }
 
+    // הפקת תמונה מקישור יוטיוב
     function getThumb(url) {
         const id = url.split('/embed/')[1]?.split('?')[0];
         return `https://img.youtube.com/vi/${id}/mqdefault.jpg`;
     }
 
+    // טעינת נתונים משני קבצי JSON
     async function initDashboard() {
         try {
             const version = Date.now();
-            const res = await fetch(`manual_links.json?v=${version}`);
-            if (!res.ok) return;
-            const allCategories = await res.json();
+            
+            // טעינת שני הקבצים
+            const [resAuto, resManual] = await Promise.all([
+                fetch(`streams.json?v=${version}`).then(r => r.ok ? r.json() : {}).catch(() => ({})),
+                fetch(`manual_links.json?v=${version}`).then(r => r.ok ? r.json() : {}).catch(() => ({}))
+            ]);
 
-            for (const [categoryKey, songs] of Object.entries(allCategories)) {
-                const grid = document.getElementById(categoryKey);
-                if (!grid) continue;
+            // איחוד נתונים
+            const allCategories = { ...resAuto, ...resManual };
+
+            for (const [key, songs] of Object.entries(allCategories)) {
+                const grid = document.getElementById(key);
+                if (!grid || !Array.isArray(songs)) continue;
 
                 grid.innerHTML = songs.map(song => `
                     <article class="video-card">
                         <div class="video-container" onclick="loadVideo(this, '${song.url}')">
                             <img src="${getThumb(song.url)}" alt="${song.title}" loading="lazy">
-                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:40px;"><i class="bi bi-play-circle-fill"></i></div>
+                            <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); color:white; font-size:45px; text-shadow: 0 0 10px rgba(0,0,0,0.5);">
+                                <i class="bi bi-play-circle-fill"></i>
+                            </div>
                         </div>
                         <h3 class="video-title">${song.title}</h3>
                     </article>
                 `).join('');
             }
-        } catch (e) { console.error("Error loading JSON", e); }
+        } catch (e) { console.error("Error initializing dashboard", e); }
     }
 
-    // לוגיקת תאריך עברי באותיות
+    // תאריך עברי וגמטריה
     function getGematria(num) {
         const letters = {1000:'תתק',900:'תתק',800:'תת',700:'תש',600:'תר',500:'תק',400:'ת',300:'ש',200:'ר',100:'ק',90:'צ',80:'פ',70:'ע',60:'ס',50:'נ',40:'מ',30:'ל',20:'כ',10:'י',9:'ט',8:'ח',7:'ז',6:'ו',5:'ה',4:'ד',3:'ג',2:'ב',1:'א'};
         let str = ''; if (num >= 5000) num -= 5000;
