@@ -1,52 +1,57 @@
 import json
 import yt_dlp
+import re
 
-def scrape_cartoons():
-    # Targeted queries for official and 24/7 cartoon streams
-    queries = [
-        "cartoon network live stream",
-        "disney junior official live",
-        "nickelodeon live channel",
-        "peppa pig live 24/7",
-        "spongebob live stream 24/7",
-        "looney tunes official live",
-        "nursery rhymes kids live tv",
-        "cocomelon live stream"
-    ]
+def get_episode_number(title):
+    # מחפש מספרים בכותרת כדי לנסות לסדר לפי פרקים
+    match = re.search(r'פרק\s+(\d+)', title)
+    return int(match.group(1)) if match else 999
 
-    all_streams = []
-    ydl_opts = {
-        'quiet': True,
-        'extract_flat': True,
-        'skip_download': True,
-    }
+def scrape_all():
+    all_results = {}
 
+    # --- חלק 1: איסוף המומינים (מסודר) ---
+    print("🔍 Scraping The Moomins (Hebrew)...")
+    moomin_query = "המומינים פרק מלא"
+    moomin_episodes = []
+    
+    ydl_opts = {'quiet': True, 'extract_flat': True, 'skip_download': True}
+    
     with yt_dlp.YoutubeDL(ydl_opts) as ydl:
-        for q in queries:
-            print(f"🔍 Searching for: {q}...")
-            search_query = f"ytsearch10:{q}" 
-            try:
-                info = ydl.extract_info(search_query, download=False)
-                if 'entries' in info:
-                    for entry in info['entries']:
-                        # Verification: strictly live content only
-                        if entry and entry.get('id'):
-                            # Avoid duplicates and non-live videos
-                            if not any(s['id'] == entry['id'] for s in all_streams):
-                                all_streams.append({
-                                    "id": entry['id'],
-                                    "title": entry.get('title', 'Cartoon Live'),
-                                    "url": f"https://www.youtube.com/embed/{entry['id']}"
-                                })
-            except Exception as e:
-                print(f"❌ Error: {e}")
+        # מחפש עד 50 תוצאות כדי לתפוס כמה שיותר פרקים
+        info = ydl.extract_info(f"ytsearch50:{moomin_query}", download=False)
+        for entry in info.get('entries', []):
+            if entry and 'המומינים' in entry.get('title', ''):
+                moomin_episodes.append({
+                    "id": entry['id'],
+                    "title": entry.get('title'),
+                    "ep_num": get_episode_number(entry.get('title')),
+                    "url": f"https://www.youtube.com/embed/{entry['id']}"
+                })
+    
+    # מיון לפי מספר פרק
+    moomin_episodes.sort(key=lambda x: x['ep_num'])
+    all_results["moomins"] = moomin_episodes
 
-    # Wrap in the cartoons category for the website to read
-    results = {"cartoons": all_streams}
+    # --- חלק 2: איסוף שידורי מצויירים חיים (כפי שהיה) ---
+    print("🔍 Scraping Live Cartoons...")
+    live_queries = ["cartoon network live", "disney junior live", "nickelodeon live"]
+    live_streams = []
+    for q in live_queries:
+        info = ydl.extract_info(f"ytsearch5:{q} live", download=False)
+        for entry in info.get('entries', []):
+            if entry:
+                live_streams.append({
+                    "id": entry['id'],
+                    "title": entry.get('title'),
+                    "url": f"https://www.youtube.com/embed/{entry['id']}"
+                })
+    all_results["cartoons"] = live_streams
 
+    # שמירה ל-JSON
     with open('streams.json', 'w', encoding='utf-8') as f:
-        json.dump(results, f, indent=4, ensure_ascii=False)
-    print(f"✨ Success! Found {len(all_streams)} active cartoon channels.")
+        json.dump(all_results, f, indent=4, ensure_ascii=False)
+    print(f"✨ Done! Found {len(moomin_episodes)} Moomin episodes.")
 
 if __name__ == "__main__":
-    scrape_cartoons()
+    scrape_all()
