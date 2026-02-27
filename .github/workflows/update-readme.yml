@@ -1,10 +1,12 @@
 name: Update Dashboard README
 
 on:
-  workflow_dispatch: # הפעלה ידנית בלבד מה-Actions tab
+  workflow_dispatch: # הפעלה ידנית
   push:
+    branches:
+      - main
     paths:
-      - 'manual_links.json' # מעדכן את ה-README בכל פעם שיש שינוי בתוכן
+      - 'manual_links.json' # מתעדכן רק כשהשינוי אושר ומוזג ל-main
 
 jobs:
   build:
@@ -16,43 +18,48 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Generate README File
+      - name: Calculate Stats and Generate README
         run: |
+          # חישוב כמות השירים הכוללת מה-JSON לסטטיסטיקה ב-README
+          SONG_COUNT=$(jq '[.[] | length] | add' manual_links.json)
+          CAT_COUNT=$(jq 'keys | length' manual_links.json)
+          
           echo "# 🎵 דשבורד הגננת המקצועי | Highlights Hub" > README.md
           echo "" >> README.md
           echo "[![Site Status](https://img.shields.io/website?url=https%3A%2F%2Falmog787.github.io%2Fhighlights-hub%2F&logo=googlechrome&logoColor=white)](https://almog787.github.io/highlights-hub/)" >> README.md
           echo "![GitHub last commit](https://img.shields.io/github/last-commit/Almog787/highlights-hub?color=blue)" >> README.md
+          echo "![Songs Count](https://img.shields.io/badge/Songs_in_Library-$SONG_COUNT-orange?logo=youtubemusic)" >> README.md
           echo "" >> README.md
           echo "## 🌍 אודות הפרויקט" >> README.md
-          echo "מרכז מדיה דיגיטלי מתקדם המותאם אישית לגני ילדים (גילאי 0-4). המערכת נבנתה במטרה לספק גישה מהירה, נקייה ופדגוגית לתכנים מוזיקליים וסרטוני הפעלה ללא פרסומות מסיחות דעת." >> README.md
+          echo "מרכז מדיה דיגיטלי מתקדם המותאם אישית לגני ילדים (גילאי 0-4). המערכת מספקת חוויית צפייה נקייה ללא פרסומות, תוך דגש על פדגוגיה מוזיקלית ותנועתית." >> README.md
           echo "" >> README.md
-          echo "### 🚀 יכולות מרכזיות" >> README.md
-          echo "* **ניהול דו-ערוצי:** שילוב בין תוכן אוטומטי (Python Scraper) לבין בחירה ידנית של הגננת." >> README.md
-          echo "* **מערכי שיעור מובנים:** לכל שיר ניתן להצמיד הנחיות פעילות ותנועה." >> README.md
-          echo "* **ביצועים גבוהים:** שימוש ב-Lazy Loading לטעינה מהירה במיוחד של נגני וידאו." >> README.md
-          echo "* **ממשק אדמין:** דף ניהול מאובטח לעדכון תכנים בזמן אמת ללא צורך בידע טכני." >> README.md
+          echo "### 🚀 ארכיטקטורה מודרנית (v3.0)" >> README.md
+          echo "* **CMS מבוסס Google Sheets:** ניהול התוכן מתבצע ישירות מגליון אלקטרוני חכם ללא צורך בכניסה לקוד." >> README.md
+          echo "* **מנגנון אישור (QA):** כל עדכון מהגליון יוצר Pull Request הממתין לבדיקה ואישור לפני הפרסום." >> README.md
+          echo "* **אבטחה משופרת:** שימוש ב-Fine-grained Tokens מוגבלים והרשאות Scope מינימליות." >> README.md
+          echo "* **תאריך עברי מלא:** תצוגת תאריך באותיות (גימטריה) מובנית במערכת." >> README.md
+          echo "" >> README.md
+          echo "## 📊 סטטיסטיקת תוכן" >> README.md
+          echo "* **סה\"כ שירים במערכת:** $SONG_COUNT" >> README.md
+          echo "* **קטגוריות פעילות:** $CAT_COUNT" >> README.md
           echo "" >> README.md
           echo "## 🔗 קישורים מהירים" >> README.md
-          echo "| דף המערכת | ממשק ניהול (Admin) |" >> README.md
+          echo "| משאב | קישור |" >> README.md
           echo "| :--- | :--- |" >> README.md
-          echo "| [👉 כניסה לדשבורד הגננת](https://almog787.github.io/highlights-hub/) | [⚙️ ניהול תכנים ומערכי שיעור](https://almog787.github.io/highlights-hub/admin.html) |" >> README.md
+          echo "| 📺 **דשבורד הגננת** | [כניסה למערכת](https://almog787.github.io/highlights-hub/) |" >> README.md
+          echo "| 📋 **ניהול תוכן** | עריכה דרך Google Sheets המקושר |" >> README.md
           echo "" >> README.md
           echo "---" >> README.md
-          echo "## 🌟 מה חדש בגרסה 2.5?" >> README.md
-          echo "* 🔐 **אבטחת אדמין:** ממשק הניהול מוגן בסיסמה אישית." >> README.md
-          echo "* ☁️ **GitHub Actions Integration:** עדכון הקבצים מתבצע בצורה מאובטחת דרך שרתי GitHub." >> README.md
-          echo "* 📝 **עריכה ויזואלית:** הוספה ומחיקה של שירים ישירות מהדפדפן." >> README.md
-          echo "" >> README.md
           echo "## 👨‍💻 מפתח המערכת" >> README.md
           echo "[Almog787](https://github.com/Almog787)" >> README.md
           echo "" >> README.md
           echo "---" >> README.md
-          echo "*עודכן לאחרונה על ידי המערכת ב: $(date -u '+%d/%m/%Y %H:%M:%S') UTC*" >> README.md
+          echo "*ה-README עודכן אוטומטית על ידי GitHub Actions ב: $(date -u '+%d/%m/%Y %H:%M:%S') UTC*" >> README.md
 
       - name: Commit and Push Changes
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md
-          git commit -m "docs: update README with current links and project info" || exit 0
+          git commit -m "docs: sync README with new Sheets-CMS architecture" || exit 0
           git push
