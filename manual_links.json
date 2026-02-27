@@ -2,7 +2,8 @@
   "manual_section": [
     {
       "title": "אני מצחצח שיניים",
-      "url": "https://www.youtube.com/embed/DPILWI69AAQ?start=65&rel=0"
+      "url": "https://www.youtube.com/embed/DPILWI69AAQ?start=65&rel=0",
+      "lesson_plan": "הדרכה: הילדים עושים תנועות של צחצוח 'למעלה, למטה ובסיבוב' תוך כדי השיר."
     },
     {
       "title": "ציפי שביט - ברבאבא",
@@ -24,10 +25,11 @@
   "birthday": [
     {
       "title": "נוסעים ליום הולדת - מירב האוסמן",
-      "url": "https://www.youtube.com/embed/ie9f9Poc9zQ"
+      "url": "https://www.youtube.com/embed/ie9f9Poc9zQ",
+      "lesson_plan": "מערך טקס: הילד החוגג מוביל 'רכבת' של כל ילדי הגן מסביב לכיסא היום הולדת."
     },
     {
-      "title": "שירי יום הולדת עם רעותי - 20 דקות ברצף",
+      "title": "שירי יום הולדת עם רעותי - רצף",
       "url": "https://www.youtube.com/embed/JmTfLelPUGE"
     },
     {
@@ -40,7 +42,8 @@
     },
     {
       "title": "יום הולדת בגן - המצנח",
-      "url": "https://www.youtube.com/embed/Adha4ornELY"
+      "url": "https://www.youtube.com/embed/Adha4ornELY",
+      "lesson_plan": "פעילות מצנח: מניחים את הילד החוגג במרכז המצנח וכל הילדים מניפים אותו בעדינות למעלה ולמטה."
     },
     {
       "title": "מחרוזת שירי יום הולדת - ילדות ישראלית",
