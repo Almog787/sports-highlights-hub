@@ -34,6 +34,22 @@
         .dashboard-title { font-weight: 800; color: #2c3e50; font-size: 1.5rem; display: flex; align-items: center; gap: 8px; }
         .dashboard-title i { color: #e74c3c; }
         
+        /* כפתור תפילות */
+        .btn-prayers {
+            background: #fff5f5;
+            color: #d63031;
+            border: 1.5px solid #fab1a0;
+            padding: 6px 15px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .btn-prayers:hover { background: #d63031; color: white; }
+
         .time-badge { background: #f8f9fa; border-radius: 12px; padding: 10px 15px; border: 1px solid #eef2f5; text-align: center; min-width: 180px; }
         #clock-time { color: #2c3e50; font-weight: 800; font-size: 1.3rem; line-height: 1.2; }
         .date-text { color: #7f8c8d; font-size: 0.85rem; font-weight: 600; margin-top: 2px; }
@@ -62,6 +78,12 @@
         .lesson-plan-box { display: none; padding: 15px; background: #f0f7fb; font-size: 0.95rem; border-top: 1px solid #e1eef6; border-radius: 0 0 20px 20px; }
         .lesson-plan-box.show { display: block; }
         
+        /* עיצוב מודאל תפילות */
+        .prayer-section { border-bottom: 2px solid #f1f1f1; padding-bottom: 20px; margin-bottom: 20px; }
+        .prayer-section:last-child { border-bottom: none; }
+        .prayer-title { color: #d63031; font-weight: 800; margin-bottom: 10px; font-size: 1.2rem; display: flex; align-items: center; gap: 8px; }
+        .prayer-text { font-size: 1.15rem; line-height: 1.8; color: #2d3436; font-weight: 600; text-align: center; }
+
         footer { background: white; padding: 25px 0; margin-top: auto; text-align: center; border-top: 1px solid #eee; }
     </style>
 </head>
@@ -69,7 +91,12 @@
 
 <header>
     <div class="container d-flex justify-content-between align-items-center flex-wrap gap-3">
-        <h1 class="dashboard-title m-0"><i class="bi bi-music-note-beamed"></i> המרכז המוזיקלי</h1>
+        <div class="d-flex align-items-center gap-3">
+            <h1 class="dashboard-title m-0"><i class="bi bi-music-note-beamed"></i> המרכז המוזיקלי</h1>
+            <button class="btn-prayers" data-bs-toggle="modal" data-bs-target="#prayersModal">
+                <i class="bi bi-heart-fill"></i> תפילות
+            </button>
+        </div>
         <div class="time-badge">
             <div id="clock-time">--:--</div>
             <div id="date-hebrew" class="date-text">טוען תאריך...</div>
@@ -77,6 +104,37 @@
         </div>
     </div>
 </header>
+
+<div class="modal fade" id="prayersModal" tabindex="-1" aria-labelledby="prayersModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content" style="border-radius: 25px; border: none;">
+      <div class="modal-header" style="border-bottom: none; padding: 20px 30px;">
+        <h5 class="modal-title fw-bold" id="prayersModalLabel">תפילות בוקר ושלום</h5>
+        <button type="button" class="btn-close m-0" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="padding: 10px 30px 30px;">
+        
+        <div class="prayer-section">
+            <div class="prayer-title"><i class="bi bi-sun-fill"></i> מודה אני</div>
+            <div class="prayer-text">
+                מוֹדֶה אֲנִי לְפָנֶיךָ מֶלֶךְ חַי וְקַיָּם,<br>
+                שֶׁהֶחֱזַרְתָּ בִּי נִשְׁמָתִי בְּחֶמְלָה,<br>
+                רַבָּה אֱמוּנָתֶךָ.
+            </div>
+        </div>
+
+        <div class="prayer-section">
+            <div class="prayer-title"><i class="bi bi-shield-shaded"></i> תפילה לשלום חיילי צה"ל</div>
+            <div class="prayer-text" style="font-size: 1rem;">
+                מִי שֶׁבֵּרַךְ אֲבוֹתֵינוּ אַבְרָהָם יִצְחָק וְיַעֲקֹב, הוּא יְבָרֵךְ אֶת חַיָּלֵי צְבָא הֲגַנָּה לְיִשְׂרָאֵל, הָעוֹמְדִים עַל מִשְׁמַר אַרְצֵנוּ וְעָרֵי אֱלֹהֵינוּ, מִגְּבוּל הַלְּבָנוֹן וְעַד מִדְבַּר מִצְרַיִם, וּמִן הַיָּם הַגָּדוֹל עַד לְבוֹא הָעֲרָבָה, בַּיַּבָּשָׁה בָּאֲוִיר וּבַיָּם.<br><br>
+                יִתֵּן ה' אֶת אוֹיְבֵינוּ הַקָּמִים עָלֵינוּ נִגָּפִים לִפְנֵיהֶם! הַקָּדוֹשׁ בָּרוּךְ הוּא יִשְׁמֹר וְיַצִּיל אֶת חַיָּלֵינוּ מִכָּל צָרָה וְצוּקָה, וּמִכָּל נֶגַע וּמַחֲלָה, וְיִשְׁלַח בְּרָכָה וְהַצְלָחָה בְּכָל מַעֲשֵׂה יְדֵיהֶם. יַדְבֵּר שׂוֹנְאֵינוּ תַּחְתֵּיהֶם, וִיעַטְּרֵם בְּכֶתֶר יְשׁוּעָה וּבְעֲטֶרֶת נִצָּחוֹן. וִיקֻיַּם בָּהֶם הַכָּתוּב: "כִּי ה' אֱלֹהֵיכֶם הַהֹלֵךְ עִמָּכֶם, לְהִלָּחֵם לָכֶם עִם אֹיְבֵיכֶם לְהוֹשִׁיעַ אֶתְכֶם". וְנֹאמַר: אָמֵן.
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
 
 <nav class="category-bar">
     <div class="container d-flex">
@@ -110,10 +168,10 @@
     <p class="m-0 text-muted fw-bold">נבנה באהבה לגננות ישראל &copy; 2026 | Almog787</p>
 </footer>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script>
     let currentCategory = 'manual_section';
 
-    // פונקציית המרת מספר לאותיות עבריות (גימטריה)
     function getGematria(num) {
         if (num <= 0) return '';
         let str = '';
@@ -121,20 +179,16 @@
             400: 'ת', 300: 'ש', 200: 'ר', 100: 'ק', 90: 'צ', 80: 'פ', 70: 'ע', 60: 'ס', 50: 'נ', 40: 'מ', 30: 'ל', 20: 'כ', 10: 'י', 9: 'ט', 8: 'ח', 7: 'ז', 6: 'ו', 5: 'ה', 4: 'ד', 3: 'ג', 2: 'ב', 1: 'א' 
         };
         const keys = Object.keys(letters).sort((a, b) => b - a);
-        
         let n = num;
-        if (n >= 5000) n -= 5000; // הורדת האלפים (ה'תשפ"ו)
-        
+        if (n >= 5000) n -= 5000;
         for (let key of keys) {
             while (n >= key) {
-                // טיפול מיוחד ב-15 ו-16 (טו, טז)
                 if (n === 15) { str += 'טו'; n = 0; break; }
                 if (n === 16) { str += 'טז'; n = 0; break; }
                 str += letters[key];
                 n -= key;
             }
         }
-        // הוספת גרשיים
         if (str.length === 1) return str + "'";
         return str.slice(0, -1) + '"' + str.slice(-1);
     }
@@ -143,27 +197,20 @@
         const now = new Date();
         document.getElementById('clock-time').innerText = now.toLocaleTimeString('he-IL', {hour: '2-digit', minute:'2-digit'});
         document.getElementById('date-gregorian').innerText = now.toLocaleDateString('he-IL', {day:'numeric', month:'long', year:'numeric'});
-        
         try {
             const options = { day: 'numeric', month: 'long', year: 'numeric', calendar: 'hebrew' };
             const heParts = new Intl.DateTimeFormat('he-IL-u-ca-hebrew', options).formatToParts(now);
-            
             const dayNum = parseInt(heParts.find(p => p.type === 'day').value);
             const monthName = heParts.find(p => p.type === 'month').value;
             const yearNum = parseInt(heParts.find(p => p.type === 'year').value);
-            
-            const heDay = getGematria(dayNum);
-            const heYear = "ה'" + getGematria(yearNum);
-            
-            document.getElementById('date-hebrew').innerText = `${heDay} ב${monthName} ${heYear}`;
-        } catch(e) { console.error("Error formatting Hebrew date"); }
+            document.getElementById('date-hebrew').innerText = `${getGematria(dayNum)} ב${monthName} ה'${getGematria(yearNum)}`;
+        } catch(e) { console.error(e); }
     }
 
     function toggleLesson(btn, title) {
         const box = btn.parentElement.nextElementSibling;
         box.classList.toggle('show');
         btn.innerHTML = box.classList.contains('show') ? '<i class="bi bi-chevron-up"></i> סגור' : '<i class="bi bi-lightbulb"></i> רעיון לפעילות';
-        if(box.classList.contains('show')) gtag('event', 'view_lesson', { 'song': title });
     }
 
     function switchCat(id, btn) {
@@ -172,7 +219,6 @@
         document.querySelectorAll('.nav-btn').forEach(b => b.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         btn.classList.add('active');
-        gtag('event', 'change_category', { 'category': id });
     }
 
     function filterSongs() {
@@ -194,7 +240,6 @@
         const id = getYouTubeID({url: idOrUrl, id: idOrUrl});
         if(id) {
             container.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;z-index:10;border-radius:20px 20px 0 0;"></iframe>`;
-            gtag('event', 'play_song', { 'title': title });
         }
     }
 
